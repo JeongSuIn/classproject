@@ -16,7 +16,7 @@ public class UseVariable {
 		// 연산한 결과를 변수 num3에 대입한다.
 		int num3;
 		num3 = num1 + num2;
-		//5. 연산의 결과를 출력하자.
+		//5. 연산의 결과를 출력하자.dd
 		System.out.println("num3: " +num3);
 		
 		
