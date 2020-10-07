@@ -1,4 +1,4 @@
-package triangle;
+package exam;
 
 public class Square1 {
 
