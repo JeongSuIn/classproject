@@ -28,7 +28,7 @@ public class Child {
 		win(num); // 
 		// 상대방은 패배 -> 구슬을 감소
 		child.lose(num);
-	}
+	}//
 	
 	// 구슬의 개수를 출력하는 메서드
 	void showData() {
