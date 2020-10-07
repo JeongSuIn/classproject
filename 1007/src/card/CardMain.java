@@ -20,7 +20,7 @@ public class CardMain {
 		
 		Card.play();
 		
-		Card c1 = new Card("hart", 10);
+		Card c1 = new Card("heart", 10);
 		Card c2 = new Card();
 		
 		
