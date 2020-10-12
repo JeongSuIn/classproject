@@ -185,7 +185,7 @@ public class ExamFor {
 			n++;
 		}
 		
-//		문제 5 for -> while
+//		문제 [5] for -> while
 		System.out.println("-----문제[5]-----");
 		
 		/*for(int i=0; i<=10; i++) {
@@ -198,20 +198,33 @@ public class ExamFor {
 
 			} */
 		
+		int i =0;
+		
+		while(i<=10) {
+			int j = 0;	
+			System.out.print(" ");
+			while(j<=i) {
+				System.out.println("*");
+				
+				j++;
+			}i++; 
+			
+		}
 		
 		
-//		문제 6 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하는 프로그램을작성하시오.
+		
+//		문제 [6] 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하는 프로그램을작성하시오.
 		// 1 ~ 6 -> 반복의 범위
 		// dice1 + dice2 = 6 -? dice2 = 6-dice1
 		System.out.println("-----문제[6]-----");
 		
 		sum = 0;
-		for(int i=1; i<6; i++) {
+		for(i=1; i<6; i++) {
 			System.out.print("첫번째 주사위가 " + i + "일 때");
 			System.out.println("두번째 주사위는 " + (6-i) + "여야 한다.");
 		}
 		
-//		문제 7 
+//		문제 [7] 
 		System.out.println("-----문제[7]-----");
 		
 		int value = (int)(Math.random()*6)+1;
@@ -239,7 +252,7 @@ public class ExamFor {
 		int cNum = Integer.parseInt(str);		// -> 문자열을 -> int형으로 바꿔줌
 		sum = 0;
 		
-		for(int i=0; i<str.length(); i++) {
+		for(i=0; i<str.length(); i++) {
 			System.out.println(str.charAt(i));
 			sum += str.charAt(i)-'0';	// 자동 형변환 됐음 -> 49-48, 50-48, 51-48, 
 		} 
@@ -275,7 +288,7 @@ public class ExamFor {
 		int num3 = 0;
 		
 		System.out.print(num1 + ", " + num2);
-		for(int i=0; i<8; i++) {
+		for(i=0; i<8; i++) {
 			num3 = num1 + num2;
 			System.out.print(", " + num3);
 			
@@ -292,14 +305,17 @@ public class ExamFor {
 		boolean isNumber = true;
 		
 		// 반복문과 charAt(inti)를 이용해서 문자열의 문자를 하나씩 읽어서 검사한다.
-		for(int i=0; i<str.length(); i++) {
+		for(i=0; i<str.length(); i++) {
 			ch = str.charAt(i);
 			if(!(ch>='0' && ch<='9')) {
 				isNumber = false;
 				break;
 			} 
-			//if
-		//	}
+			if(isNumber) {
+				System.out.println(value + "는 숫자입니다.");
+			} else {
+				System.out.println(value + "는 숫자가 아닙니다.");
+			}
 		}
 //		문제 [14]
 		// 다음은 숫자 맞추기 게임을 작성한 것이다.
