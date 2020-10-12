@@ -22,18 +22,19 @@ public class PhoneInfor {
 
 	// 생성자의 오버로딩
 	
+	// 이름, 생년월일
+		PhoneInfor(String name, String phoneNumber){
+			this.name = name;
+			this.phoneNumber = phoneNumber;
+		}
+	
 	// 이름, 생년월일, 생일
 	PhoneInfor(String name, String phoneNumber, String birthday){
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.birthday = birthday;
 	}
-	
-	// 이름, 생년월일
-	PhoneInfor(String name, String phoneNumber){
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-	}
+		
 	
 	PhoneInfor(PhoneInfor man){
 		this(man.name, man.phoneNumber, man.birthday);
