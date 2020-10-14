@@ -2,7 +2,7 @@ package ver02;
 
 import java.util.Scanner;
 
-public class PhoneBookMain {
+public class PhoneBookMain2 {
 
 	public static void main(String[] args) {
 		
@@ -24,7 +24,7 @@ public class PhoneBookMain {
 		String birthday = s.nextLine(); // "   "
 		
 		// 인스턴스 생성
-		PhoneInfor infor = null;
+		PhoneInfor2 infor = null;
 		
 		// trim() -> " 12 3      ".trim() -> "12 3" (왼쪽과 오른쪽 공백을 지워줌 / 가운데 공백은 지워주지 않음.)
 		
@@ -32,9 +32,9 @@ public class PhoneBookMain {
 		// 문자열의 길이가  0이면 
 		//if(birthday.length()==0) {
 		if(birthday.trim().isEmpty()) { // length() == 0 -> true
-			infor = new PhoneInfor(name, phoneNumber, null);	
+			infor = new PhoneInfor2(name, phoneNumber, null);	
 		} else {
-			infor = new PhoneInfor(name, phoneNumber, birthday);
+			infor = new PhoneInfor2(name, phoneNumber, birthday);
 		}
 		
 		// 메소드 호출
