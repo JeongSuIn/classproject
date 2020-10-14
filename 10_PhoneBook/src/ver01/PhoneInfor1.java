@@ -1,6 +1,6 @@
 package ver01;
 
-public class PhoneInfor {
+public class PhoneInfor1 {
 	
 	//변수: 이름, 전화번호, 생년월일
 	// 메소드: 적절한 출력이 가능하도록 정의 
@@ -18,14 +18,14 @@ public class PhoneInfor {
 	String birthday;	// 생일 
 	
 	// 생성자: 3개의 데이터를 받아 초기화
-	PhoneInfor(String name, String phoneNumber, String birthday){
+	PhoneInfor1(String name, String phoneNumber, String birthday){
 		this.name = name; // this는 자신을 가리킴
 		this.phoneNumber = phoneNumber;
 		this.birthday = birthday;
 	}
 	
 	// 생성자: 2개의 데이터(이름, 전화번호)
-	PhoneInfor(String name, String phoneNumber){
+	PhoneInfor1(String name, String phoneNumber){
 		//this.name = name;
 		//this.phoneNumber = phoneNumber;
 		this(name, phoneNumber, null);
