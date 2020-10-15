@@ -1,4 +1,4 @@
-package forClass;
+package forclass;
 
 public class mainClass {
 

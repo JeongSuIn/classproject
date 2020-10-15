@@ -1,4 +1,4 @@
-package whileClass;
+package whileclass;
 import java.util.Scanner; 
 
 public class mainClass {

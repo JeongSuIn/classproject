@@ -1,4 +1,4 @@
-package ifClass;
+package ifclass;
 import java.util.Scanner;
 
 public class mainClass {

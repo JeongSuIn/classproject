@@ -1,4 +1,4 @@
-package samProg;
+package samprog;
 import java.util.Scanner;
 
 public class mainClass {

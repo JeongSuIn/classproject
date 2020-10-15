@@ -1,4 +1,4 @@
-package randomClass;
+package randomclass;
 
 public class mainClass {
 

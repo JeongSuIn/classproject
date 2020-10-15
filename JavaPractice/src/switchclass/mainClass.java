@@ -1,4 +1,4 @@
-package switchClass;
+package switchclass;
 
 public class mainClass {
 

@@ -1,4 +1,4 @@
-package findNumber;
+package findnumber;
 import java.util.Scanner;
 
 public class mainClass2 {
