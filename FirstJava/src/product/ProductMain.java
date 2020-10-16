@@ -10,6 +10,7 @@ public class ProductMain {
 		Buyer b = new Buyer();
 		
 		String str = "";
+		
 		str.toString();
 		
 		// 제품 인스턴스 생성
