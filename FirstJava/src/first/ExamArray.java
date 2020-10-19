@@ -21,9 +21,12 @@ public class ExamArray {
 		System.out.println("최대값은 >> " + maxValue(arr)); // arr에 있는 숫자중 제일 큰 숫자가 출력
 		System.out.println("최소값은 >> " + minValue(arr)); // arr에 있는 숫자중 제일 작은 숫자가 출력
 
+		
+		
 		System.out.println("-----문제02-----");
-
-		int[][] arr2 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int[][] arr2 = { { 1, 2, 3 }, 
+						 { 4, 5, 6 },
+						 { 7, 8, 9 } };
 
 		// 출력
 
@@ -44,6 +47,9 @@ public class ExamArray {
 			}
 			System.out.println();
 		}
+		
+		System.out.println("-----문제03-----");
+		
 
 	}
 
