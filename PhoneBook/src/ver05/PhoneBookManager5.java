@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import ver03.Util3;
 
-public class PhoneBookManager4 {
+public class PhoneBookManager5 {
 	// 전화번호 정보를 저장할 배열을 가지고,
 	// 배열을 이용한 정보의 저장, 삭제, 출력을 하는 기능
 
@@ -14,25 +14,25 @@ public class PhoneBookManager4 {
 	Scanner sc = new Scanner(System.in);
 
 	// 정보 저장을 위한 배열선언: 상속 관계이므로 PhoneInfor타입으로 선언
-	private PhoneInfor4[] phoneBook; // 전화번호 정보를 저장할 배열
+	private PhoneInfor5[] phoneBook; // 전화번호 정보를 저장할 배열
 	private int cnt = 0; // 배열에 저장된 정보(요소)의 개수, 배열의 인덱스
 
 	//20.10.21 수정
 	// 생성자: 싱글톤 처리 -> 외부에서 인스턴스 생성을 못하도록 처리
-	private PhoneBookManager4(int num) { // 개수 num을 받음
-		phoneBook = new PhoneInfor4[num]; // phoneInfor 타입의 배열 num의 수만큼 배열을 생성
+	private PhoneBookManager5(int num) { // 개수 num을 받음
+		phoneBook = new PhoneInfor5[num]; // phoneInfor 타입의 배열 num의 수만큼 배열을 생성
 		cnt = 0; // 생성자의 매개변수의 인자를 전달 받아 배열 생성
 	}
 	
 	//20.10.21 수정
 	// 클래스 내부에서 인스턴스 생성 -> 외부에서 변경할 수 없도록 private 처리
 	// static이 없으면 변수가 만들어지지 않음 -> 왜...?
-	private static PhoneBookManager4 manager = new PhoneBookManager4(100);
+	private static PhoneBookManager5 manager = new PhoneBookManager5(100);
 	
 	//20.10.21 추가
 	// 외부에서 참조변수를 받을 수 있는 메소드
 	// 내부에서만 처리하려면 public 처리 안해도 됨. 하지만 보통 싱글톤 처리를 하면 public으로 처리 
-	public static PhoneBookManager4 getInstance() {
+	public static PhoneBookManager5 getInstance() {
 		return manager;
 	}
 	
@@ -43,7 +43,7 @@ public class PhoneBookManager4 {
 	// 입력의 구분 -> 구분에 따라 인스턴스 생성도 구분이 되어야 한다. -> addInfor() 메소드를 이용해서 정보를 저장
 
 	// 배열의 전화번호(상위) 정보를 저장하는 메소드 생성
-	private void addInfor(PhoneInfor4 info) { // 반환값 없음.
+	private void addInfor(PhoneInfor5 info) { // 반환값 없음.
 		phoneBook[cnt++] = info; // 상위 클래스에서 받은 값을 phoneBook 배열에 넣어줌.
 	}
 
@@ -107,14 +107,14 @@ public class PhoneBookManager4 {
 			System.out.println("학년 >> ");
 			int grade = Util3.sc.nextInt();
 
-			addInfor(new PhoneUnivInfor4(name, phoneNumber, address, email, major, grade));
+			addInfor(new PhoneUnivInfor5(name, phoneNumber, address, email, major, grade));
 			break;
 		case Menu.COM:
 			// 추가 정보를 받고 -> 인스턴스 생성 -> 배열에 저장
 			System.out.println("회사명 >> ");
 			String company = Util3.sc.nextLine();
 
-			addInfor(new PhoneCompanyInfor4(name, phoneNumber, address, email, company));
+			addInfor(new PhoneCompanyInfor5(name, phoneNumber, address, email, company));
 			break;
 		case Menu.CAFE:
 			// 추가 정보를 받고 -> 인스턴스 생성 -> 배열에 저장
@@ -123,7 +123,7 @@ public class PhoneBookManager4 {
 			System.out.println("닉네임 >> ");
 			String nickName = Util3.sc.nextLine();
 
-			addInfor(new PhoneCafeInfor4(name, phoneNumber, address, email, cafeName, nickName));
+			addInfor(new PhoneCafeInfor5(name, phoneNumber, address, email, cafeName, nickName));
 
 			break;
 		}

@@ -1,13 +1,13 @@
 package ver05;
 
-public class PhoneCafeInfor4 extends PhoneInfor4 {
+public class PhoneCafeInfor5 extends PhoneInfor5 {
 
 	// 동호회 이름, 닉네임
 	private String cafeName; // 동호회 이름
 	private String nickName; // 닉네임
 
 	// 생성자
-	public PhoneCafeInfor4(String name, String phoneNumber, String address, String email, String cafeName,
+	public PhoneCafeInfor5(String name, String phoneNumber, String address, String email, String cafeName,
 			String nickName) {
 		super(name, phoneNumber, address, email);
 		this.cafeName = cafeName;

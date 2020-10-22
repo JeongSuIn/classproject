@@ -1,6 +1,6 @@
 package ver05;
 
-public abstract class PhoneInfor4 implements Infor { // extends Object 
+public abstract class PhoneInfor5 implements Infor { // extends Object 
 	// abstract를 붙여 showBasicInfor를 오버라이딩
 	
 	
@@ -22,7 +22,7 @@ public abstract class PhoneInfor4 implements Infor { // extends Object
 	
 	
 	// 생성자: 3개의 데이터를 받아 초기화
-	PhoneInfor4(String name, String phoneNumber, String address, String email){
+	PhoneInfor5(String name, String phoneNumber, String address, String email){
 		// super(); / Object 클래스의 생성자를 호출
 		this.name = name; // this는 자신을 가리킴
 		this.phoneNumber = phoneNumber;		

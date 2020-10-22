@@ -1,12 +1,12 @@
 package ver05;
 
-public class PhoneUnivInfor4 extends PhoneInfor4 {
+public class PhoneUnivInfor5 extends PhoneInfor5 {
 
 	// 대학 친구: 전공, 학년 추가
 	private String major;
 	private int grade;
 
-	public PhoneUnivInfor4(String name, String phoneNumber, String address, String email, String major, int grade) {
+	public PhoneUnivInfor5(String name, String phoneNumber, String address, String email, String major, int grade) {
 		// 상위 클래스의 생성자 호출: 상위클래스의 멤버 변수 초기화
 		super(name, phoneNumber, address, email);
 		// 새로 추가된 멤버 변수 초기화

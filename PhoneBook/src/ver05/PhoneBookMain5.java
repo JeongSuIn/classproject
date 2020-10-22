@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import ver03.Util3;
 
-public class PhoneBookMain4 {
+public class PhoneBookMain5 {
 
 	public static void main(String[] args) {
 		
@@ -24,7 +24,7 @@ public class PhoneBookMain4 {
 		//20.10.21 수정
 		// 참조값을 인스턴스 통해서 받음. 
 		// 싱글톤 처리 -> new 연산자를 사용하지 않고 처리
-		PhoneBookManager4 manager = PhoneBookManager4.getInstance();
+		PhoneBookManager5 manager = PhoneBookManager5.getInstance();
 		
 		
 		while(true) {
