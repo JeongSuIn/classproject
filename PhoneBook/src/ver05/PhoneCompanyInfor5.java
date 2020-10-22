@@ -25,6 +25,7 @@ public class PhoneCompanyInfor5 extends PhoneInfor5 {
 		System.out.println("회사 >> " + company);
 	}
 
+	// 20.10.21 추가
 	@Override
 	public void showBasicInfor() {
 		super.showInfor();

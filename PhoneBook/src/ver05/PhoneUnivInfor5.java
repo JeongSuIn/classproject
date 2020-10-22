@@ -39,7 +39,7 @@ public class PhoneUnivInfor5 extends PhoneInfor5 {
 		System.out.println("학년 >> " + grade);
 	}
 
-	// 추가 됨.
+	// 20.10.21 추가
 	@Override
 	public void showBasicInfor() {
 		super.showInfor();

@@ -2,7 +2,7 @@ package generic;
 
 public class FruitBox <T> {	// T -> Apple
 
-	T fruit;	// apple ruit
+	T fruit;	// => apple fruit
 	
 	public FruitBox(T fruit) {	// public FruitBox(Apple fruit)
 		this.fruit = fruit;

@@ -16,6 +16,8 @@ public class WrapperEx1 {
 		System.out.println("SIZE >> " + Integer.SIZE + "bits");
 		System.out.println("TYPE >> " + Integer.TYPE);
 		
+		System.out.println("----------");
+		
 		
 	}
 

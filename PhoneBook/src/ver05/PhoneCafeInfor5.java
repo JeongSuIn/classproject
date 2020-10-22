@@ -39,6 +39,7 @@ public class PhoneCafeInfor5 extends PhoneInfor5 {
 		System.out.println("닉네임 >> " + nickName);
 	}
 	
+	// 20.10.21 추가
 	@Override
 	public void showBasicInfor() {
 		super.showInfor();
