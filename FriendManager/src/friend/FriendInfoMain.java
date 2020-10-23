@@ -1,5 +1,6 @@
 package friend;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FriendInfoMain {
@@ -22,7 +23,27 @@ public class FriendInfoMain {
 			System.out.println(Menu.EXIT + ". 프로그램 종료");
 			System.out.println("선택하세요 >> ");
 			
-			int choice = sc.nextInt();
+			int choice = 0;		// 1~5
+			
+			//20.10.23 수정 - 예외 처리 추가
+			try {
+				choice = sc.nextInt();
+
+				if( !(choice>=Menu.INSERT_HIGH && choice<=Menu.EXIT) ) {
+					// 예외
+					BadMenuException e = new BadMenuException("잘못된 메뉴 입력");
+							throw e;		
+				
+				}
+				
+			} catch(InputMismatchException | BadMenuException e) {
+				System.out.println("잘못된 메뉴를 입력했습니다. \n다시 선택해주세요.");
+				sc.nextLine();
+				continue;
+			} catch(Exception e) {
+				System.out.println("잘못된 메뉴 입력입니다. \n 다시 입력해주세요.");
+				continue;
+			}
 			
 			switch(choice) {
 				case Menu.INSERT_HIGH: case Menu.INSERT_UNIV:
