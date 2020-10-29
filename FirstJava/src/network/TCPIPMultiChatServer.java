@@ -33,7 +33,7 @@ public class TCPIPMultiChatServer {
 		
 		Socket socket = null;
 		
-		// 반복헤서 소켓을 받음
+		// 반복해서 소켓을 받음
 		while(true) {
 			// 요청이 들어올 때까지 대기 -> 요청이 들어오면 새로운 Scocket 생성해서 반환
 			socket = serverSocket.accept();
