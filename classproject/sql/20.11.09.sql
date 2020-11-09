@@ -138,6 +138,81 @@ where deptno=10 or job='MANAGER'
 ;
 
 
+-- 부서번호가 10번이 아닌 사원의
+-- 사원이름, 부서번호, 직급을 출력해봅시다
+
+select ename, deptno, job
+from emp 
+where deptno!=10 -- = where deptno<>10
+;
+
+-- 2000에서 3000 사이ㅡ이 급여를 받는 사원을 조회하기
+select * 
+from emp
+-- where sal >=2000 and <=3000
+where sal between 2000 and 3000 -- a 이상 b 이하의 범위
+;
+
+-- 1987년에 입사한 사원을 출력
+-- '1987/01/01' and '1987/12/31'
+select *
+from emp
+-- where hiredate between '1987/01/01' and '1987/12/31'
+where hiredate>= '87/01/01' and hiredate <= '87/12/31'
+;
+
+-- 커미션이 300이거나 500이거나 1400인 사원을 검색하기
+select *
+from emp
+-- where comm=300 or comm=500 or comm=1400 or comm=1000 
+where comm in(300, 500, 1400, 1000, 3000)
+;
+
+-- 찾으려는 이름이 F로 시작하는 것은 알지만 그 뒤이ㅡ 문자는 모를 경우
+select *
+from emp
+-- where ename like 'F%' -- F로 시작하고 뒤에는 어떤 문자가 와도 상관없다.
+-- where ename like '%S' -- S로 끝나고 앞에는 어떤 문자가 와도 상관없다.
+-- where ename like '%A%' -- 이름에 A문자를 포함하는 이름을 검색
+-- where ename like '_A%' -- 이름에 A문자 앞에 하나의 어떤 문자가 반드시 존재하고 A이후에는 어떤 문자가 오든 상관 없다.
+-- swhere ename like '__R%' -- 이름에 R문자 앞에 두 개의 어떤 문자가 반드시 존재하고 R이후에는 어떤 문자가 오든 상관 없다.
+-- 000000-2000000
+
+where ename not like '%A%'
+;
+
+-- 커미션을 받지 않는 사원을 검색
+select *
+from emp
+-- where comm = null -> 오류
+where comm is null
+;
+
+-- 커미션을 받는 사원을 검색
+select *
+from emp
+where comm is not null and comm>0
+;
+
+-- 사원의 리스트를 
+-- 급여의 오름차순으로 정렬해보자
+select *
+from emp
+-- order by sal asc
+-- oder by sal -> 생략: 자동으로 ASC 오름차순
+-- order by sal Desc -- 내림차순
+-- order by ename desc -> 이름을 내림차순으로 정렬
+-- order by comm
+-- order by comm desc
+-- order by hiredate -- '날짜의 작다'는 오래된 날짜이다.: 오름차순은 오래된 날짜부터 최근 날짜로 정렬
+order by hiredate desc -- 최근날짜부터 오래된 날짜 순으로 정렬
+;
+
+
+
+
+
+
 
 -- select hiredate from emp;
 
