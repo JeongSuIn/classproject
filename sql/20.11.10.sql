@@ -489,7 +489,17 @@ select max(sal), min(sal), sum(sal), floor(avg(sal))
 from emp
 ;
 
-
+-- 24. 각 담당 업무 유형별로 급여 최고액, 최저액, 총액 및 평균 액을 출력하시오.
+select 
+    job, 
+    max(sal),
+    min(sal),
+    sum(sal),
+    floor(avg(sal))
+from emp
+where job!='PRESIDENT' -- 그룹화하기 위한 행을 선택하는 기준
+group by job
+;
 
 
 
