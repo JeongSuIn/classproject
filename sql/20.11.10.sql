@@ -501,10 +501,54 @@ where job!='PRESIDENT' -- 그룹화하기 위한 행을 선택하는 기준
 group by job
 ;
 
+-- 25.
+-- COUNT(*) 함수를 이용하여 담당업무가 동일한 사원 수를 출력하시오.
+select job, count(*)
+from emp
+group by job
+;
+
+-- 26.
+-- 관리자 수를 출력하시오.
+select count(*)
+from emp
+having job='MANAGER'
+group by job
+;
+
+-- 27.
+-- 급여 최고액, 급여 최저액의 차액을 출력하시오.
+select max(sal) - min(sal)
+from emp
+;
+
+-- 28.
+-- ﻿직급별 사원의 최저 급여를 출력하시오.
+-- 관리자를 알 수 없는 사원과
+-- 최저 급여가 2000 미만인 그룹은 제외시키고
+-- 결과를 급여에 대한 내림차순으로 정렬하여 출력하시오.﻿
+select deptno, min(sal)
+from emp
+
+group by deptno
+having min(sal)>=2000
+
+;
+
+-- 29.
+-- 각 부서에 대해 부서번호, 사원 수, 부서 내의 모든 사원의 평균 급여를 출력하시오.
+-- 평균 급여는 소수점 둘째 자리로 반올림 하시오.
+select deptno, count(*), round(avg(sal), 2)
+from emp
+group by deptno
+;
+
+-- 30.
+-- 각 부서에 대해 부서번호 이름, 지역 명, 사원 수 , 부서 내의 모든 사원의 평균 급여를 출력하시오
 
 
-
-
+-- 31.
+-- djqanfmf vy
 
 
 
