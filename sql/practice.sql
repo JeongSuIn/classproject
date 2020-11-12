@@ -25,12 +25,18 @@ where (select min(sal) from emp )=sal
 ;
 
 -- 46. 평균급여가 가장 적은 직급의 직급 이름과 직급의 평균을 구하시오.
-select 
-from (select job, avg(sal) from emp where 
-where 
+select job, avg(sal)
+from emp
+group by job
+having avg(sal) = (select min(avg(sal)) from emp group by job)
+;
 
 -- 47. 각 부서의 최소 급여를 받는 사원의 이름, 급여, 부서번호를 표시하시오.
-select ename, sal, deptno
-from emp
-where 
+select min(sal) from emp group by deptno; -- 각 부서의 최소 급여
+
+select e.ename, e.sal, e.deptno
+from emp e, (select min(sal) as ms from emp group by deptno) m
+where e.deptno=m.deptno and e.sal=m.ms
+
 ;
+
