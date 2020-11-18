@@ -1,20 +1,16 @@
 package jdbc;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-public class JDBCOracleConnectionTest {
+public class emp_practice {
 
 	public static void main(String[] args) {
-		
-		Connection conn = null;
+Connection conn = null;
 		
 		try {
-			// 1. 드라이버 로드
+			// 1. 드라이버 로드 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			System.out.println("Oracle Driver Load !!!");
@@ -42,8 +38,6 @@ public class JDBCOracleConnectionTest {
 			e.printStackTrace();
 		}
 		
-		
-
 	}
 
 }
