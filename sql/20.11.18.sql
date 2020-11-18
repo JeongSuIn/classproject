@@ -22,3 +22,4 @@ select * from emp;
 
 -- 5.모든 사원정보를 출력하되 부서정보를 함께 출력하는 프로그램을 작성해보자.
 desc emp;
+commit;

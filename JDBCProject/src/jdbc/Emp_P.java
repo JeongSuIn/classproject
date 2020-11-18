@@ -6,10 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-//import java.util.Scanner;
 
-public class emp_practice {
-
+public class Emp_P {
+	
 	public static void main(String[] args) {
 //		Scanner sc = new Scanner(System.in);
 
@@ -41,11 +40,14 @@ public class emp_practice {
 
 			// 입력
 			String sqlInsert = "insert into emp values(7999, 'ALI', 'MANAGER', 7902, '20/11/18', 5000, 0, 10)";
+			System.out.println(sqlInsert);
 
 			int resultCnt = stmt.executeUpdate(sqlInsert);
 
 			if (resultCnt > 0) {
 				System.out.println("데이터가 정상적으로 입력되었습니다.");
+			} else {
+				System.out.println("실패");
 			}
 
 			// 4. sql 실행: 사원 리스트 출력
