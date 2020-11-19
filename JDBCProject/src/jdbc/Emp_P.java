@@ -31,24 +31,19 @@ public class Emp_P {
 			// 3. statement 인스턴스 생성
 			Statement stmt = conn.createStatement();
 
-//			System.out.println("새로 입사한 사원의 사원번호를 입력해주세요.");
-//			int empNo = sc.nextInt();
-//			System.out.println("새로 입사한 사원의 이름을 입력해주세요.");
-//			String empName = sc.nextLine();
-//			System.out.println("새로 입사한 사원의 이름을 입력해주세요.");
-//			String empName = sc.nextLine();
+
 
 			// 입력
-			String sqlInsert = "insert into emp values(7999, 'ALI', 'MANAGER', 7902, '20/11/18', 5000, 0, 10)";
-			System.out.println(sqlInsert);
-
-			int resultCnt = stmt.executeUpdate(sqlInsert);
-
-			if (resultCnt > 0) {
-				System.out.println("데이터가 정상적으로 입력되었습니다.");
-			} else {
-				System.out.println("실패");
-			}
+//			String sqlInsert = "insert into emp values(7999, 'ALI', 'MANAGER', 7902, '20/11/18', 5000, 0, 10)";
+//			System.out.println(sqlInsert);
+//
+//			int resultCnt = stmt.executeUpdate(sqlInsert);
+//
+//			if (resultCnt > 0) {
+//				System.out.println("데이터가 정상적으로 입력되었습니다.");
+//			} else {
+//				System.out.println("실패");
+//			}
 
 			// 4. sql 실행: 사원 리스트 출력
 			String sql = "select * from emp order by empno";
