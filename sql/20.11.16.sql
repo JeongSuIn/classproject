@@ -1,7 +1,8 @@
 -- 20.11.16
 
 -- PhoneBook  DDL: 테이블 정의서를 참고 DDL 작성한다.
-
+select * from phoneinfo_basic;
+select * from phoneinfo_com;
 -- 도메인 정의
 create table phoneInfo_basic (
     idx number(6) constraint pi_basic_idx_PK primary key,
@@ -135,3 +136,9 @@ delete from phoneinfo_com where fr_ref=8;
 delete from phoneinfo_basic where idx=8;
 
 
+select * from tab;
+
+desc emp;
+select * from emp ;
+update emp
+set deptno= (select deptno from emp where ename='SCOTT');
