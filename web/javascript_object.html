@@ -1,0 +1,369 @@
+Skip to content
+Search or jump to…
+
+Pulls
+Issues
+Marketplace
+Explore
+ 
+@JeongSuIn 
+aiacademyjin
+/
+classproject
+1
+🔖 Custom notification settings
+Looking for a little more control? Now you can choose which types of activity you’d like to be notified about per repository.
+
+02
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+More
+classproject/web/javascript_object.html
+@aiacademyjin
+aiacademyjin 2020.11.27
+Latest commit 6e18742 7 minutes ago
+ History
+ 1 contributor
+340 lines (264 sloc)  9.31 KB
+  
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object</title>
+    <script>
+        // 자바스크립트의 객체 생성
+        // {}  : 중괄호를 이용해서 쉽게 객체 생성
+        var obj = {}; // obj 이름의 객체를 생성
+        //console.log('typeof(obj) =>',typeof(obj));
+
+        // 객체의 속성 정의
+        // 속성이름:속성값, 속성이름:속성값
+        var member = {
+            memberId: 'cool',
+            memberName: '시원한',
+            age: 15,
+            chk: false,
+            books: ['자바의정석', '퍼스트자바', '웹프로그래밍'],
+            hello: function() {
+                alert('안녕하세요');
+            }
+        };
+
+        // 객체에 참조, 호출
+        // 객체변수.속성이름
+        // 객체변수.메소드이름()
+        //console.log('회원의 아이디', member.memberId);
+        //member.hello();
+
+        //객체에 속성, 메소드 추가
+        member.study = function() {
+            alert(this.books[1] + '를 공부합니다.');
+        };
+
+        //member.study();
+
+        member.nicName = 'COOL';
+        //console.log('member의 닉네임 =>', member.nicName);
+
+        // 속성의 삭제 : delete
+        delete member.nicName;
+
+        //console.log('member의 닉네임 =>', member.nicName);
+
+
+        ///////////////////////////////////////
+
+        // 학생들의 국어 영어 수학 점수를 관리하는 프로그램을 만들자.
+        // 데이터는 학생 이름, 국어점수, 영어점수, 수학점수 -> 객체
+        // 객체를 저장하는 배열
+
+        // 학생 객체 구조
+        var student = {
+            name: 'KING',
+            kor: 100,
+            eng: 100,
+            math: 100,
+            sum: function() {
+                return this.kor + this.eng + this.math;
+            },
+            avg: function() {
+                return this.sum() / 3;
+            }
+        };
+        
+        alert(JSON.stringify(student));
+
+        // 학생들을 저장하는 배열을 생성
+        var students = [];
+
+        // 배열에 요소 추가 : push(요소)
+        /*students.push({
+            name: 'A01',
+            kor: 100,
+            eng: 70,
+            math: 60
+        });
+        students.push({
+            name: 'A02',
+            kor: 90,
+            eng: 80,
+            math: 70
+        });
+        students.push({
+            name: 'A03',
+            kor: 80,
+            eng: 60,
+            math: 60
+        });
+        students.push({
+            name: 'A04',
+            kor: 70,
+            eng: 80,
+            math: 50
+        });
+        students.push({
+            name: 'A05',
+            kor: 60,
+            eng: 60,
+            math: 40
+        });
+        students.push({
+            name: 'A06',
+            kor: 50,
+            eng: 70,
+            math: 70
+        });
+        students.push({
+            name: 'A07',
+            kor: 40,
+            eng: 60,
+            math: 70
+        });
+        students.push({
+            name: 'A08',
+            kor: 70,
+            eng: 70,
+            math: 90
+        });
+        students.push({
+            name: 'A09',
+            kor: 90,
+            eng: 80,
+            math: 100
+        });
+        students.push({
+            name: 'A10',
+            kor: 100,
+            eng: 90,
+            math: 90
+        });*/
+
+        // 배열의 사이즈
+        //console.log('students 의 사이즈 =>', students.length);
+
+        /*for (var i = 0; i < students.length; i++) {
+            students[i].sum = function() {
+                return this.kor + this.eng + this.math;
+            };
+            students[i].avg = function() {
+                return this.sum() / 3;
+            };
+        }*/
+
+        /*
+        생성자 함수 
+        : 데이터를 전달받아 객체의 요소들의 값을 초기화 할수 있다.
+        : new 를 이용해서 객체를 만들 수 있다.
+        */
+
+        // 학생 데이터를 저장하는 Student 생성자 함수 정의
+        function Student(name, kor, eng, math) {
+            this.name = name;
+            this.kor = kor;
+            this.eng = eng;
+            this.math = math;
+
+            // 총합을 구하는 메소드
+            /*this.sum = function() {
+                return this.kor + this.eng + this.math;
+            };*/
+
+            // 평균을 구하는 메소드
+            /*this.avg = function() {
+                return this.sum() / 3;
+            }*/
+
+            // 결과 출력을위한 메소드
+            /*this.toString = function() {
+                html = '   <tr>';
+                html += '       <td>' + this.name + '</td>';
+                html += '       <td>' + this.kor + '</td>';
+                html += '       <td>' + this.eng + '</td>';
+                html += '       <td>' + this.math + '</td>';
+                html += '       <td>' + this.sum() + '</td>';
+                html += '       <td>' + Math.floor(this.avg()) + '</td>';
+                html += '   </tr>';
+                
+                return html;
+            }*/
+        }
+        
+        
+        // 생성자 함수의 공통 속성은 prototype 속성으로 관리할수 있다.
+        // 공통속성으로 정의하면 불필요한 메모리를 쓰지 않는다.
+        
+        // prototype 정의 : sum, avg, toString
+        Student.prototype.sum = function() {
+            return this.kor + this.eng + this.math;
+        };
+        
+        Student.prototype.avg = function() {
+            return this.sum() / 3;
+        };
+        
+        Student.prototype.toString = function() {
+            html = '   <tr>';
+            html += '       <td>' + this.name + '</td>';
+            html += '       <td>' + this.kor + '</td>';
+            html += '       <td>' + this.eng + '</td>';
+            html += '       <td>' + this.math + '</td>';
+            html += '       <td>' + this.sum() + '</td>';
+            html += '       <td>' + Math.floor(this.avg()) + '</td>';
+            html += '   </tr>';
+
+            return html;
+        };
+        
+        
+        
+        
+
+        // 객체 생성
+        var st1 = new Student('cool', 10, 20, 30);
+        //console.log('typeof(st1)', typeof(st1));
+        //console.log('st1', st1);
+        
+        // 배열에 요소 추가
+        students.push(new Student('A01', 80, 80, 80));
+        students.push(new Student('A02', 30, 100, 100));
+        students.push(new Student('A03', 50, 80, 70));
+        students.push(new Student('A04', 60, 60, 60));
+        students.push(new Student('A05', 70, 50, 50));
+        students.push(new Student('A06', 80, 80, 80));
+        students.push(new Student('A07', 90, 90, 90));
+        students.push(new Student('A08', 100, 100, 90));
+        students.push(new Student('A09', 40, 80, 80));
+        students.push(new Student('A10', 80, 80, 70));
+
+        
+        
+        students.sort(function(left, right){
+            return right.sum()-left.sum();
+        });
+        
+        students = students.slice(0,3);
+        
+        alert(JSON.stringify(students));
+        
+        var html = '<table border=1>';
+        html += '   <tr>';
+        html += '       <th>이름</th>';
+        html += '       <th>국어</th>';
+        html += '       <th>영어</th>';
+        html += '       <th>수학</th>';
+        html += '       <th>총점</th>';
+        html += '       <th>평균</th>';
+        html += '   </tr>';
+
+        for (var i in students) {
+            
+            html += students[i].toString();
+/*            html += '   <tr>';
+            html += '       <td>' + students[i].name + '</td>';
+            html += '       <td>' + students[i].kor + '</td>';
+            html += '       <td>' + students[i].eng + '</td>';
+            html += '       <td>' + students[i].math + '</td>';
+            html += '       <td>' + students[i].sum() + '</td>';
+            html += '       <td>' + Math.floor(students[i].avg()) + '</td>';
+            html += '   </tr>';*/
+        };
+
+        html += '</table>';
+        
+        
+        // 생성자 함수 
+        function Rectangle(w,h){
+            //this.width = w;
+            //this.height = h;
+            var width = w;
+            var height = h;
+            
+            this.getWidth = function(){
+                return width;
+            }
+            this.getHeight = function(){
+                return height;
+            }
+            this.setWidth = function(w){
+                width=w;
+            }
+            this.setHeight = function(h){
+                height=h;
+            }
+        }
+        
+        var rec = new Rectangle(10,20);
+        
+        console.log('rec', rec.getWidth());
+        console.log('rec', rec.getHeight());
+        
+        rec.setHeight(100);
+        rec.setWidth(200);
+        
+        console.log('rec', rec.getWidth());
+        console.log('rec', rec.getHeight());
+
+        
+        var arr = [11,78, 574, 1, 100];
+        //arr.sort();
+        
+        /*arr.sort(function(left, right){
+            return left-right;
+        });*/
+        
+        arr.sort(function(left, right){
+            return right-left;
+        });
+        
+        
+        console.log(arr);
+        
+        
+        
+        
+
+        window.onload = function() {
+            document.body.innerHTML = html;
+        };
+        
+        
+        
+    </script>
+</head>
+
+<body>
+
+</body></html>
+
+
+
+
+
+
