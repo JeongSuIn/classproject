@@ -235,7 +235,7 @@ function editMember(index){
     
 }
 
-function editMemberDsata(){
+function editMemberData(){
     // 캐스팅
     // index
     var eidx = document.querySelector('#index').value;    
