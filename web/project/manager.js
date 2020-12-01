@@ -318,7 +318,7 @@ function editMemberdata(){
     setlist();
     
     document.querySelector('#editform').reset();
-    document.querySelector('#div.edit_div').style.display='none';
+    document.querySelector('div.edit_div').style.display='none';
     
     return false;
 }
