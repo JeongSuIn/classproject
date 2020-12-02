@@ -1,4 +1,3 @@
-
 // 회원정보 멤버 객체들을 저장하는 배열
 var members = []; // object -> 문자열 
 
@@ -328,32 +327,5 @@ function editMemberClose(){
     var editDiv = document.querySelector('div.edit_div');
     editDiv.style.display='none';  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
