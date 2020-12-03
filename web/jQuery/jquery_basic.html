@@ -83,9 +83,10 @@
             $('body').html($('body').html() + output);
 
 
-
+            /*addClass(): 문서 객체의 클래스 속성을 추가*/
             $('h1').addClass('title');
-
+            
+            // 배열 관리
             $('h1').each(function(index, item) {
                 if (index % 2 == 0) {
                     // item을 jQuery로 바꿔줌
@@ -116,7 +117,7 @@
 </head>
 
 <body>
-
+    <!--jquery의 배열 객체는 따로 만드는 것이 아니라, 선택자로 여러 개의 문서 객체를 선택할 때 생성-->
     <h1>header-1</h1>
     <h1>header-2</h1>
     <h1>header-3</h1>
