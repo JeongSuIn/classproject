@@ -58,10 +58,13 @@
             xmlStr += '     </link>';
             xmlStr += '</links>';
             
+            // 특정 태그 선택
+            // $.parseXML() 메소드와 each()메소드, find()메소드
             // 문자열 -> xml문서 객체
             var xmlDoc = $.parseXML(xmlStr);
             
             // xml문서 객체를 -> jquery 객체: find()
+        
             $(xmlDoc).find('link').each(function(index){
                 var name = $(this).find('name').text();
                 var url = $(this).find('url').text();
@@ -72,6 +75,7 @@
                 html += '   <a href = "'+url+'">방문하기</a>'
                 html += '</div>\n';
                 
+                // 문서 객체 내부의 글자와 관련된 모든 기능을 수행합니다.(HTML 태그 인식)
                 $('body').html(html+$('body').html());
             });
             
