@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%= request.getAttribute("userName")%>,
+	<%= request.getAttribute("userName")%>,=
 	<%= application.getAttribute("userId")%>,
 	<%= session.getAttribute("nickName") %>,
 	<%= pageContext.getAttribute("age") %>
