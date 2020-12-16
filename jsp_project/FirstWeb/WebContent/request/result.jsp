@@ -1,13 +1,6 @@
 <%@page import="form.FormData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <%
 	// 1. 사용자로부터 받은 데이터를 beans에 저장하고,
 	// beans 객체를 생성
@@ -26,6 +19,3 @@
 	// view.js로 beans 객체를 전달(공유)
 	request.setAttribute("data", formData);
 %>
-
-</body>
-</html>
