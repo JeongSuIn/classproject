@@ -25,7 +25,7 @@
             <tr>
                 <th><label for="userid">아이디</label></th>
                 <td>
-                    <input type="text" id="userid" name="userId" value="<%= saveId %>">
+                    <input type="text" id="userid" name="userid" value="<%= saveId %>">
                 </td>
             </tr>
             <tr>
@@ -37,7 +37,7 @@
             <tr>
                 <th></th>
                 <td>
-                    <input type="checkbox" name="chk", value="<%= checked %>"> 아이디 저장
+                    <input type="checkbox" name="chk" value="on" <%= checked %>> 아이디 저장
                 </td>
             </tr>
             <tr>
