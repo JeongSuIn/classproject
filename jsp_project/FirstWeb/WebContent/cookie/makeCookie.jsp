@@ -10,7 +10,7 @@
 	response.addCookie(c1);
 	
 	Cookie c2 = new Cookie("userName",URLEncoder.encode("김연아", "UTF-8"));
-	c2.setMaxAge(60*25);
+	c2.setMaxAge(60*20);
 	response.addCookie(c2);
 	
 	response.addCookie(CookieBox.createCookie("nickName", "KIM"));

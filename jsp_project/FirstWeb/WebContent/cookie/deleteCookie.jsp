@@ -3,7 +3,8 @@
     <%
     	//쿠키의 유지 시간을 0으로 설정: 삭제
     	Cookie cookie = new Cookie("userId","");
-    	cookie.setMaxAge(0);	// 유지 시간
+    	cookie.setMaxAge(0);	// 유지 시간을 0으로 설정
+    	response.addCookie(cookie);
     
     %>
 <!DOCTYPE html>

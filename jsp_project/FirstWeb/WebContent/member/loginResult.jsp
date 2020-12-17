@@ -17,7 +17,7 @@
 		
 		response.addCookie(CookieBox.createCookie("uid", userId, "/", 60*60*24*365));
 	} else{
-		response.addCookie(CookieBox.createCookie("uid", userId, "/", 0));
+		response.addCookie(CookieBox.createCookie("uid", userId, "/", 1));
 	}
 	
 	formLogin.setId(userId);
