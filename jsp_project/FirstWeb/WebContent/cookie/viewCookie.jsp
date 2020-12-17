@@ -1,6 +1,15 @@
+<%@page import="util.CookieBox"%>
 <%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%
+	
+
+  CookieBox cookieBox = new CookieBox(request);
+
+	
+    
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +17,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+
+userId=<%= cookieBox.getValue("userId") %><br>
+age=<%= cookieBox.getCookie("age").getValue() %><br>
+nickName이 존재하는지 여부: <%= cookieBox.exists("nickName") %>
+
+
+	<%-- <%
 		Cookie[] cookies = request.getCookies();
 		if(cookies != null && cookies.length>0){
 			for(int i=0; i<cookies.length ; i++){
@@ -20,7 +35,10 @@
 		} else {
 			out.println("<h1>저장된 쿠키가 없습니다.</h1>");
 		}
-%>
+%> --%>
+
+
+
 	<h1>
 		<a href="editCookie.jsp">쿠키 수정</a>
 	</h1>
