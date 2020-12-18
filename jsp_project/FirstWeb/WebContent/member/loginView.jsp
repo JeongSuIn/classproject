@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	FormLogin data = (FormLogin)request.getAttribute("data");
+	FormLogin formLogin = (FormLogin) request.getAttribute("formLogin");
 %>
 <!DOCTYPE html>
 <html>
@@ -11,17 +11,9 @@
 <title>로그인 데이터 출력</title>
 </head>
 <body>
-	<h1>로그인 데이터 출력</h1>
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td><%= data.getId() %></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><%= data.getPw() %></td>
-			</tr>
-			
-		</table>
+	<h1>로그인 되었습니다.</h1>
+	<h3><%=formLogin.getId()%>(<%=formLogin.getPw()%>)</h3>
+	<h3><a href="loginSessionCheck.jsp">로그인 여부 체크 페이지 </a></h3>
+
 </body>
 </html>
