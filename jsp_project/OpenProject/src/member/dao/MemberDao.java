@@ -2,7 +2,10 @@ package member.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.mysql.cj.protocol.Resultset;
 
 import member.Member;
 
@@ -34,7 +37,7 @@ public class MemberDao {
 
 		PreparedStatement pstmt = null;
 
-		String sqlInsert = " INTO open.member(memberid, password, membername) VALUES(?,?,?)";
+		String sqlInsert = "INSERT INTO open.member(memberid, password, membername) VALUES(?,?,?)";
 
 		// pstmt 생성
 		try {
@@ -53,4 +56,32 @@ public class MemberDao {
 		return resultCnt;
 	}
 
+	// 로그인을 위한 select
+	public Member selectMemberLogin(Connection conn, String uid, String pw) {
+		Member member = null;
+		
+		String sqlSelect = "SELECT * FROM open.member where memberid=? and password=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
+			pstmt.setNString(1, uid);
+			pstmt.setNString(2, pw);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = new Member(
+						rs.getString("memberid")
+						, rs.getString("password")
+						, rs.getNString("membername")
+						, rs.getString("memberphoto"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return member;
+	}
+	
+	
 }
