@@ -25,9 +25,7 @@ public class LoginInfo {
 	}
 
 	// memer -> LoginInfo 객체로 변환
-	public LoginInfo toLoginInfo() {
-		return new LoginInfo(this.memberId, this.userName, this.userPhto);
-	}
+	
 	
 	@Override
 	public String toString() {

@@ -3,12 +3,12 @@
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="member.dao.MemberDao"%>
-
 <%@page import="util.CookieBox"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+
 	// 데이터 받기: 아이디, 비밀번호
 String userId = request.getParameter("userid");
 String pw = request.getParameter("pw");
@@ -20,7 +20,7 @@ if (chk != null && chk.equals("on") && userId != null && !userId.isEmpty()) {
 	// uid=userId
 	response.addCookie(CookieBox.createCookie("uid", userId, "/", 60 * 60 * 24 * 365));
 } else {
-	response.addCookie(CookieBox.createCookie("uid", userId, "/", 1));
+	response.addCookie(CookieBox.createCookie("uid", userId, "/", 0));
 }
 
 
