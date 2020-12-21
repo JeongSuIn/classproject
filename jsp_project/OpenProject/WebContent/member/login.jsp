@@ -38,9 +38,11 @@ Member member = dao.selectMemberLogin(conn, userId, pw);
 if(member!=null){
 	// 인증이 되어 로그인 처리: session 객체에 로그인 정보를 속성에 저장
 	//System.out.println(member);
-
+	
 	LoginInfo loginInfo = member.toLoginInfo();
-	System.out.println(loginInfo);
+	
+	session.setAttribute("loginInfo", loginInfo);
+	//System.out.println(loginInfo);
 
 	loginChk=true;
 	

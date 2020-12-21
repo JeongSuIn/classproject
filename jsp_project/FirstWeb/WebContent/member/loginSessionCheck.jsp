@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+// 로그인 상태 확인 : session 객체의 속성에 "login"
 FormLogin formLogin = (FormLogin)session.getAttribute("loginInfo");
 
 boolean loginCheck = formLogin == null ? false : true;
