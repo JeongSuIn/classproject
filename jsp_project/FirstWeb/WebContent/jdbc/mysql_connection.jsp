@@ -9,7 +9,7 @@
     	
     	Connection conn = null;
     
-    	// 1.드라이버 로드
+    	// 1.드라이버 로드: 프로그램에서 한번만 실행해주면 된다. -> 실행할 때 한 번 로드해주면 된다.
     	Class.forName("com.mysql.cj.jdbc.Driver");
     	
     	// 2. 데이버베이스 연결: Connection 객체를 얻어온다.
