@@ -11,8 +11,7 @@ if (!chk) {
 
 <script>
 		alert('로그인이 필요한 페이지 입니다.');
-		location.href='<%=request.getContextPath()%>
-	/member/loginForm.jsp';
+		location.href='<%=request.getContextPath()%>/member/loginForm.jsp';
 </script>
 <%
 	}
