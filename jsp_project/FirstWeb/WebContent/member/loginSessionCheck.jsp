@@ -1,11 +1,12 @@
-<%@page import="form.FormLogin"%>
+
+<%@page import="member.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 // 로그인 상태 확인 : session 객체의 속성에 "login"
-FormLogin formLogin = (FormLogin)session.getAttribute("loginInfo");
+Member member = (Member) session.getAttribute("loginInfo");
 
-boolean loginCheck = formLogin == null ? false : true;
+boolean loginCheck = member==null ? false : true;
 %>
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,7 @@ boolean loginCheck = formLogin == null ? false : true;
 	<%
 		if (loginCheck) {
 		out.println("<h1>로그인 상태입니다.</h1>");
-		out.println("<h3>" + formLogin + "</h3>");
+		out.println("<h3>" + member + "</h3>");
 		out.println("<h3><a href=\"logout.jsp\">로그아웃</a></h3>");
 		// 							=<a href="logout.jsp">
 	} else {

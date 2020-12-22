@@ -1,8 +1,9 @@
-<%@page import="form.FormLogin"%>
+<%@page import="member.Member"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	FormLogin formLogin = (FormLogin) request.getAttribute("formLogin");
+//Member member = (Member)request.getAttribute("login");
 %>
 <!DOCTYPE html>
 <html>

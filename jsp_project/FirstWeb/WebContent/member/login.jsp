@@ -1,3 +1,4 @@
+<%@page import="member.Member"%>
 <%@page import="form.FormLogin"%>
 <%@page import="util.CookieBox"%>
 
@@ -28,17 +29,17 @@ boolean loginChk = false;
 if (userId.equals(pw)) {
 	// 로그인 처리
 	// beans 생성
-	FormLogin formLogin = new FormLogin();
-
-	//데이터 바인딩
-	formLogin.setId(userId);
-	formLogin.setPw(pw);
-
-	//데이터 공유: request의 속성을 이용
-	request.setAttribute("login", formLogin);
-	
-	// 로그인 정보를 session 객체의 속성에 저장
-	session.setAttribute("loginInfo", formLogin);
+			Member member = new Member();
+			
+			// 데이터 바인딩
+			member.setUserId(userId);
+			member.setPw(pw);
+			
+			//데이터 공유 : request의 속성을 이용
+			request.setAttribute("login", member);
+			
+			// 로그인 정보를 session 객체의 속성에 저장
+			session.setAttribute("loginInfo", member);
 
 	loginChk = true;
 
