@@ -19,7 +19,7 @@
             <tr>
                 <td>아이디(email)</td>
                 <td>
-                    <%= data.getId()%>
+                    ${data.Id}<%-- <%= data.getId()%> --%>
                 </td>
             </tr>
             <tr>

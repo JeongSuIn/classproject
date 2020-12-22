@@ -25,7 +25,8 @@
 		<h2 class="content_title">My Page 2</h2>
 		<hr>
 		<div class="content">
-			<%= session.getAttribute("loginInfo") %>
+		<%-- 	<%= session.getAttribute("loginInfo") %> --%>
+		${loginInfo }
 		</div>
 	</div>
 

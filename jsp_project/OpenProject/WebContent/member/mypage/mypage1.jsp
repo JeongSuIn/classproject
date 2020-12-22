@@ -34,8 +34,12 @@
 					
 				
 			%>
-			<img alt="프로필 사진" 
+			<%-- <img alt="프로필 사진" 
 			src="<%= request.getContextPath()%>/images/<%= loginInfo.getMemberPhoto()%>"
+			height="100"> --%>
+			
+			<img alt="프로필 사진" 
+			src="${pageContext.request.contextPath }/images/${loginInfo.memberPhoto"
 			height="100">
 			<%
 				}

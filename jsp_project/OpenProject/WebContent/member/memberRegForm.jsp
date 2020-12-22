@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath()%>/css/default.css">
+<link rel="stylesheet" href="${pagecontext.request.contextPath}/css/default.css">
 <style>
 
 </style>
