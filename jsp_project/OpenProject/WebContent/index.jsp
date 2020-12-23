@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 
 <%-- <link rel="stylesheet" href="${pagecontext.request.contextPath}/css/default.css"> --%>
-<link rel="stylesheet" href="${url_defaultCss}/css/default.css">
+<link rel="stylesheet" href="${url_defaultCss}">
 	
 	
 	
