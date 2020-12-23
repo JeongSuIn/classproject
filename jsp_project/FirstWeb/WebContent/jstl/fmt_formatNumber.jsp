@@ -16,8 +16,28 @@
 	<c:set var="number" value="10000000" />
 	<fmt:formatNumber value="${number}" />
 	<br>
-	<fmt:formatNumber var="formatNumber" value="${number}"/> <!-- 변수로 사용 -->
+	<fmt:formatNumber var="formatNumber" value="${number}"/> <!-- 변수로 저장 -->
 	${formatNumber} <!-- 변수를 출력 -->
+	<br>
+	
+	통화: <fmt:formatNumber value="${number}" type="currency" currencySymbol="$"/> 
+	<br>
+	퍼센트: <fmt:formatNumber value="${number/5}" type="percent" groupingUsed="false"/>
+	<br>
+	패턴: <fmt:formatNumber value="${number}" pattern="0,000,000 ,000.00"/>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 </body>
 </html>
