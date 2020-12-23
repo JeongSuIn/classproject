@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="<%= request.getContextPath()%>/css/default.css">
+<link rel="stylesheet" href="${url_defaultCss}">
 <style>
 	
 	
@@ -26,8 +26,9 @@
 		<h2 class="content_title">My Page 1</h2>
 		<hr>
 		<div class="content">
-			<%= session.getAttribute("loginInfo") %>
+			<%-- <%= session.getAttribute("loginInfo") %> --%>
 			<br>
+			${loginInfo}
 			<%
 				LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
 				if(loginInfo != null){
@@ -39,7 +40,7 @@
 			height="100"> --%>
 			
 			<img alt="프로필 사진" 
-			src="${pageContext.request.contextPath }/images/${loginInfo.memberPhoto"
+			src="${pageContext.request.contextPath }/images/${loginInfo.memberPhoto}"
 			height="100">
 			<%
 				}
