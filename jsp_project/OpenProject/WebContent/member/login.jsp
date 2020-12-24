@@ -2,7 +2,7 @@
 <%@page import="member.Member"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="member.dao.MemberDao"%>
+<%@page import="dao.MemberDao"%>
 <%@page import="util.CookieBox"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"

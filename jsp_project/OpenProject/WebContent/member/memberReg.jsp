@@ -1,5 +1,5 @@
 <!-- 데이터를 받음 -->
-<%@page import="member.dao.MemberDao"%>
+<%@page import="dao.MemberDao"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="member.Member"%>

@@ -50,8 +50,11 @@
   	<listener-class>listener.DBCPInitListener</listener-class>
   </listener>  
   
-  
-  
+  <!-- 회원 정보 리스트 필터 등록 -->
+  <filter-mapping>
+  	<filter-name>LoginCheck</filter-name>
+  	<url-pattern>/member/manager/*</url-pattern>
+  </filter-mapping>
   
   
   

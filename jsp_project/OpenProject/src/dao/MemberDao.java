@@ -1,9 +1,12 @@
-package member.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.cj.protocol.Resultset;
 
@@ -61,7 +64,7 @@ public class MemberDao {
 	public Member selectMemberLogin(Connection conn, String uid, String pw) {
 		Member member = null;
 		
-		String sqlSelect = "SELECT * FROM open.member where memberid=? and password=?";
+		String sqlSelect = "SELECT * FROM member where memberid=? and password=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
 			pstmt.setNString(1, uid);
@@ -70,11 +73,13 @@ public class MemberDao {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				member = new Member(
-						rs.getString("memberid")
-						, rs.getString("password")
-						, rs.getNString("membername")
-						, rs.getString("memberphoto"));
+				member = makeMember(rs);
+//				member = new Member(
+//						rs.getString("memberid")
+//						, rs.getString("password")
+//						, rs.getNString("membername")
+//						, rs.getString("memberphoto")
+//						, rs.getTimestamp("regdate"));
 			}
 			
 		} catch (SQLException e) {
@@ -84,5 +89,53 @@ public class MemberDao {
 		return member;
 	}
 	
+	// 전체리스트를 반환하는 select
+	public List<Member> selectMember(Connection conn) {
+		
+		List<Member> list = new ArrayList<Member>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+//				list.add(new Member(
+//						rs.getString("memberid")
+//						, rs.getString("password")
+//						, rs.getString("membername")
+//						, rs.getString("memberphoto")
+//						, rs.getTimestamp("regdate")
+//						));
+				list.add(makeMember(rs));
+			}
+			
+			rs.close();
+			pstmt.close();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return list;
+	}
 	
+	private Member makeMember(ResultSet rs) throws SQLException {
+		
+		return new Member(
+				rs.getString("memberid")
+				, rs.getString("password")
+				, rs.getString("membername")
+				, rs.getString("memberphoto")
+				, rs.getTimestamp("regdate")
+				);
+	}
 }

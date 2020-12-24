@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
-<%@page import="member.dao.MemberDao"%>
+<%@page import="dao.MemberDao"%>
 <%@page import="jdbc.ConnectionProvider"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="member.Member"%>
@@ -52,6 +52,7 @@
 			List<FileItem> items = upload.parseRequest(request);
 			
 			Iterator<FileItem> itr = items.iterator();
+			
 			while(itr.hasNext()){
 				
 				
@@ -64,21 +65,19 @@
 					// 분기 처리..?
 					String fName = item.getFieldName();
 					
-					if(fName.equals("userId")){
+					if(fName.equals("userid")){
 						userId = item.getString("utf-8");
 					}
 					
 					if(fName.equals("pw")){
-						userId = item.getString("utf-8");
+						pw = item.getString("utf-8");
 					}
 					
-					if(fName.equals("userName")){
-						userId = item.getString("utf-8");
+					if(fName.equals("username")){
+						userName = item.getString("utf-8");
 					}
 					
-					if(fName.equals("userPhoto")){
-						userId = item.getString("utf-8");
-					}
+					
 					
 					
 				} else{ // 파일 필드
@@ -128,6 +127,7 @@
 			result = dao.insertMember(conn, member);	
 			// SQLException이 발생하면 DB에 저장이 안된다. -> 파일은 이미 저장되어 있음.
 			} catch(Exception e){
+				e.printStackTrace();
 					// 파일 생성
 					File delFile = new File(dir, userPhoto);
 					if(delFile.exists()){
