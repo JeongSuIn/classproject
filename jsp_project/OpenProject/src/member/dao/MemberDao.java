@@ -32,26 +32,27 @@ public class MemberDao {
 	// insert, select, update, delete
 
 	// 데이터 입력
-	public int insertMember(Connection conn, Member member) {
+	public int insertMember(Connection conn, Member member) throws SQLException {
 		int resultCnt = 0;
 
 		PreparedStatement pstmt = null;
 
-		String sqlInsert = "INSERT INTO open.member(memberid, password, membername) VALUES(?,?,?)";
+		String sqlInsert = "INSERT INTO open.member(memberid, password, membername, memberphoto) VALUES(?,?,?,?)";
 
 		// pstmt 생성
-		try {
+		/* try { */
 			pstmt = conn.prepareStatement(sqlInsert);
 			pstmt.setString(1, member.getUserId());
 			pstmt.setString(2, member.getPassword());
 			pstmt.setString(3, member.getUserName());
+			pstmt.setString(4, member.getUserPhoto());
 
 			//
 			resultCnt = pstmt.executeUpdate();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			/*
+			 * } catch (SQLException e) { e.printStackTrace(); }
+			 */
 
 		return resultCnt;
 	}
