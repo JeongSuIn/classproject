@@ -9,3 +9,7 @@ SELECT * FROM open.guestbook_message;
 -- 삭제 sql
 DELETE FROM `open`.`guestbook_message` WHERE message_id=1;
 -- DELETE FROM `open`.`guestbook_message` WHERE message_id=?;
+
+-- 전체 게시물의 개수를 구하기
+select count(*) from open.guestbook_message;
+-- select count(*) from guestbook_message
