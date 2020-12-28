@@ -25,7 +25,7 @@ public class MessageDao {
 		PreparedStatement pstmt=null;
 		try {
 			// 입력을 위한 sql문
-			String sql = "INSERT INTO guestbook_message (guest_name, password, message, writedate) "
+			String sql = "INSERT INTO guestbook_message (guest_name, password, message) "
 					+ " VALUES (?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, message.getGuestName());
