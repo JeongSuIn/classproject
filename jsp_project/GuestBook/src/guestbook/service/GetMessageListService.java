@@ -2,12 +2,16 @@ package guestbook.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import guestbook.dao.MessageDao;
+import guestbook.model.Message;
 import guestbook.model.MessageListView;
 import jdbc.ConnectionProvider;
 
 public class GetMessageListService {
+	
+	private final int messageCountPerPage = 3;
 	
 	// 싱글톤 패턴 적용
 	private GetMessageListService() {}
@@ -15,6 +19,7 @@ public class GetMessageListService {
 	public static GetMessageListService getInstance() {
 		return service;
 	}
+	
 	// ★MessagelistView 객체를 반환하는 메소드★ㄴ	// page 번호를 받아서 해당 페이지를 출력할 데이터를 만들어야 한다.
 	public MessageListView getMessageListView(int pageNumber) {
 		
@@ -30,10 +35,21 @@ public class GetMessageListService {
 			dao = MessageDao.getinstance();
 			
 			// 게시물의 전체 개수 -> 페이지 개수
-			int totalPageCount = dao.selectAllcount(conn);
+			int totalMessageCount = dao.selectAllcount(conn);
 			
-		} catch (SQLException e) {
+			// 현재페이지의 메세지 리스트 구하기
+			List<Message> messageList = null;
+			int firstRow = 0;
+			int endRow = 0;
 			
+			firstRow = (pageNumber-1)*messageCountPerPage;
+			endRow = firstRow+messageCountPerPage-1;
+			
+			messageList = dao.selectList(conn, firstRow, messageCountPerPage);
+			
+			listView = new MessageListView(totalMessageCount, pageNumber, messageList, messageCountPerPage, firstRow, endRow);
+			
+		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
 		

@@ -26,6 +26,7 @@ public class MessageListView {
 		this.messageCountPerPage = messageCountPerPage;
 		this.firstRow = firstRow;
 		this.endRow = endRow;
+		calculatePageTotalCount();
 	}
 	
 	private void calculatePageTotalCount() {
