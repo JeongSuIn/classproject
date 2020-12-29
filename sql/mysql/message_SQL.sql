@@ -17,3 +17,7 @@ select count(*) from open.guestbook_message;
 -- 페이지 별 메세지 리스트
 select * from open.guestbook_message order by message_id desc limit 3, 3;
 -- select * from open.guestbook_message order by message_id desc limit ?, ?
+
+-- 게시물 하나를 검색하는 질의
+select * from open.guestbook_message where message_id=11;
+-- select * from open.guestbook_message where message_id=?

@@ -114,6 +114,32 @@ public class MessageDao {
 		return message;
 	}
 
+	public Message selectMessage(Connection conn, int mid) throws SQLException {
+		
+		Message message = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from open.guestbook_message where message_id=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mid);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				message = makeMessage(rs); // 메세지를 받음.
+			}
+			
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return message;
+	}
+
 	
 	
 	
