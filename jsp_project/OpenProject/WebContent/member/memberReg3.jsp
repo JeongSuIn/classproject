@@ -4,7 +4,7 @@
 <%
 	// MemberRegService
 	// insertMember(HttpServletRequest request) -> int 1 or 0
-	MemberRegService service = MemberRegService.getinstance();
+	MemberRegService service = MemberRegService.getInstance();
 	
 	service.insertMember(request);
 	

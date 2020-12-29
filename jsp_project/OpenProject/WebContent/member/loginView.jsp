@@ -14,7 +14,7 @@
 </script>
 </c:if>
 
-<c:if test="${not loginChk}">
+<c:if test="${loginChk}">
 
 
 

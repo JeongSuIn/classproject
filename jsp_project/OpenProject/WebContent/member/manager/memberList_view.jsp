@@ -24,6 +24,7 @@
 
 	<%@ include file="/include/nav.jsp" %>
 
+
 	<div class="contents">
 		<h2 class="content_title">회원 정보 리스트.</h2>
 		<hr>
@@ -38,30 +39,35 @@
 					<th>가입일시</th>
 					</tr>
 					
-					<c:if test="${empty listView.memberList}">
+					<c:if test="${listView.memberTotalCount==0}">
 					<tr>
 						<td colspan="5">회원정보가 없습니다.</td>
 					</tr>
 					</c:if>
 					
-					<c:if test="${!empty listView.memberList}">
+					<c:if test="${listView.memberTotalCount>0}">
 					<c:forEach items="${listView.memberList}" var="member">
-					
-					<tr>
+					 <tr>
 						<td>${member.userId}</td>
-						<td>${member.pwassword}</td>
+						<td>${member.password}</td>
 						<td>${member.userName}</td>
 						<td>
-						<img alt="프로필 사진" height="50" src="<c:url value="/upload/member/${member.userPhoto}"/>"/>
+							<img alt="프로필 사진" height="50" src="<c:url value="/upload/member/${member.userPhoto}"/>"/>
 						</td>
 						<td>
-						<fmt:formatDate value="${member.date}" pattern="yyyy.MM.dd HH:mm:ss"/>
+							<fmt:formatDate value="${member.date}" pattern="yyyy.MM.dd HH:mm:ss"/>
 						</td>
 					</tr>
-					</c:forEach>
+					</c:forEach> 
 					</c:if>
 			
 			</table>
+			
+			<div class="paging">
+				<c:forEach var="num" begin="1" end="${listView.pageTotalCount }">
+					[<a href="memberList.jsp?page=${num}">${num}</a>]
+				</c:forEach>
+			</div>
 			
 			
 			

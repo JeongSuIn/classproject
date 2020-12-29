@@ -159,8 +159,13 @@ public class MemberDao {
 
 	private Member makeMember(ResultSet rs) throws SQLException {
 
-		return new Member(rs.getString("memberid"), rs.getString("password"), rs.getString("membername"),
-				rs.getString("memberphoto"), rs.getTimestamp("regdate"));
+		return new Member(
+				rs.getString("memberid")
+				, rs.getString("password")
+				, rs.getString("membername")
+				, rs.getString("memberphoto")
+				, rs.getTimestamp("regdate")
+				);
 	}
 
 	public int selectMemberTotalCount(Connection conn) throws SQLException {

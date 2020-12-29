@@ -5,7 +5,7 @@ import java.util.List;
 public class MemberListView {
 	private int memberTotalCount; // 리스트 출력, 넘버링 역할
 	private int memberCountPerPage;
-	private List<Member> memberlist;
+	private List<Member> memberList;
 	private int pageTotalCount;	// 넘버링 표현
 	private int firstRow; 
 	private int pageNumber;
@@ -14,12 +14,12 @@ public class MemberListView {
 	public MemberListView(
 			int memberTotalCount
 			, int memberCountPerPage
-			, List<Member> memberlist
+			, List<Member> memberList
 			, int firstRow
 			, int pageNumber) {		
 		this.memberTotalCount = memberTotalCount;
 		this.memberCountPerPage = memberCountPerPage;
-		this.memberlist = memberlist;
+		this.memberList = memberList;
 		this.firstRow = firstRow;
 		this.pageNumber = pageNumber;
 		calTotalPageCount();
@@ -31,7 +31,7 @@ public class MemberListView {
 			pageTotalCount=0;
 		} else {
 		pageTotalCount = memberTotalCount/memberCountPerPage;
-		pageTotalCount = memberTotalCount%memberCountPerPage>0 ? pageTotalCount++ : pageTotalCount;
+		pageTotalCount = memberTotalCount%memberCountPerPage>0 ? ++pageTotalCount : pageTotalCount;
 		}
 	}
 
@@ -43,8 +43,8 @@ public class MemberListView {
 		return memberCountPerPage;
 	}
 
-	public List<Member> getMemberlist() {
-		return memberlist;
+	public List<Member> getMemberList() {
+		return memberList;
 	}
 
 	public int getPageTotalCount() {
@@ -62,7 +62,7 @@ public class MemberListView {
 	@Override
 	public String toString() {
 		return "MemberLlistView [memberTotalCount=" + memberTotalCount + ", memberCountPerPage=" + memberCountPerPage
-				+ ", memberlist=" + memberlist + ", pageTotalCount=" + pageTotalCount + ", firstRow=" + firstRow
+				+ ", memberList=" + memberList + ", pageTotalCount=" + pageTotalCount + ", firstRow=" + firstRow
 				+ ", pageNumber=" + pageNumber + "]";
 	}
 	
