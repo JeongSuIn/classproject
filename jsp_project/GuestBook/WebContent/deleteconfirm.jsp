@@ -11,6 +11,7 @@
 	<form action="delete.jsp" method="post">
 		비밀번호<input type="password" name="pw">
 		<input type="hidden" name="mid" value="${param.mid}">
+		<input type="submit" >
 		
 	
 	</form>

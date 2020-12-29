@@ -138,7 +138,31 @@ public class MessageDao {
 			JdbcUtil.close(pstmt);
 		}
 		return message;
-	}
+	} // selectMessage
+
+	public int deleteMessage(Connection conn, int mid) throws SQLException {
+		int resultCnt = 0;
+		
+		// 메세지 삭제 처리
+		PreparedStatement pstmt = null;
+		
+		String sql = "DELETE FROM guestbook_message WHERE message_id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mid);
+			
+			resultCnt = pstmt.executeUpdate(); // 결과를 받음.
+			
+			
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		
+		return resultCnt;
+		
+	} // deleteMessage
 
 	
 	
