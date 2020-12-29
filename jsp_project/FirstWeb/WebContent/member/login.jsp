@@ -1,4 +1,4 @@
-<%@page import="member.Member"%>
+<%@page import="member.model.Member"%>
 <%@page import="form.FormLogin"%>
 <%@page import="util.CookieBox"%>
 

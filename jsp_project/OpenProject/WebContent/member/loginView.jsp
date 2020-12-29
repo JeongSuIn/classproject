@@ -1,11 +1,23 @@
-<%@page import="member.LoginInfo"%>
+<%@page import="member.model.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	<%
-		//LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
-	
-	%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%
+	//LoginInfo loginInfo = (LoginInfo)session.getAttribute("loginInfo");
+%>
+
+<c:if test="${not loginChk}">
+<script>
+	alert("아이디 또는 비밀번호가 틀립니다. 다시 로그인해주세요.");
+	history.go(-1);
+</script>
+</c:if>
+
+<c:if test="${not loginChk}">
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,16 +26,13 @@
 
 <link rel="stylesheet" href="${url_defaultCss}">
 <style>
-	
-	
-	
 </style>
 </head>
 <body>
 
-	<%@ include file="/include/header.jsp" %>
+	<%@ include file="/include/header.jsp"%>
 
-	<%@ include file="/include/nav.jsp" %>
+	<%@ include file="/include/nav.jsp"%>
 
 	<div class="contents">
 		<h2 class="content_title">Login</h2>
@@ -35,7 +44,8 @@
 		</div>
 	</div>
 
-	<%@ include file="/include/footer.jsp" %>
+	<%@ include file="/include/footer.jsp"%>
 
 </body>
 </html>
+</c:if>
