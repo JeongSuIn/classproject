@@ -17,10 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mvc.command.Command;
-import mvc.command.DateCommand;
-import mvc.command.GreetingCommand;
-import mvc.command.InvalidCommand;
-import mvc.command.MemberLoginCommand;
 
 // 4. FrontController.java 생성
 public class FrontController extends HttpServlet {
@@ -87,12 +83,7 @@ public class FrontController extends HttpServlet {
 			}
 			
 			
-			// 22. 주석처리
-//			commands = new HashMap<String, Command>();			
-//			commands.put("/", new GreetingCommand());
-//			commands.put("/greeting", new GreetingCommand());
-//			commands.put("/date", new DateCommand());
-//			commands.put("/member/login", new MemberLoginCommand());
+			
 			
 			
 		}
@@ -132,7 +123,7 @@ public class FrontController extends HttpServlet {
 			// 19. Command cmd = null; -> commands.get(command); 수정 & if 추가
 			Command cmd = commands.get(command);
 			if(cmd==null) {
-				cmd = new InvalidCommand();
+				cmd =  null;// new InvalidCommand();
 			}
 			
 			// 8. 20.String viewPage = null; -> String viewPage = cmd.getViewPage(request, response); 
