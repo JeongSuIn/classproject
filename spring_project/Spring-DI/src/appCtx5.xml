@@ -6,7 +6,7 @@
 
 <!-- MemberDao Bean(객체)으로 등록 -->
 <bean
-	id="MemberDao"
+	id="memberDao"
 	class="member.dao.MemberDao" 
 ></bean>
 
@@ -16,7 +16,7 @@
 
 	<!-- <constructor-arg ref="MemberDao"/> -->
 	<constructor-arg>
-		<ref bean="MemberDao"/>
+		<ref bean="memberDao"/>
 	</constructor-arg>
 </bean>
 

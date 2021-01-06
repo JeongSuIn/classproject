@@ -12,8 +12,8 @@ public class MemberMain2 {
 		// 1. Spring 컨테이너 생성		
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:appCtx5.xml");
 		
-		Dao dao1= ctx.getBean("memberDao", Dao.class); 
-		Dao dao2= ctx.getBean("memberDao", Dao.class); 
+		Dao dao1 = ctx.getBean("memberDao", Dao.class);
+		Dao dao2 = ctx.getBean("memberDao", Dao.class); 
 		
 		System.out.println("dao1==dao2 -> " + (dao1==dao2)); // 싱글톤 -> true
 		

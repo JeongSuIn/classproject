@@ -6,7 +6,7 @@
 
 <!-- MemberDao Bean(객체)으로 등록 -->
 <bean
-	id="MemberDao"
+	id="memberDao"
 	class="member.dao.MemberDao" 
 ></bean>
 

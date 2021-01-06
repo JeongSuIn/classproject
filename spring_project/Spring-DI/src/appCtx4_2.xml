@@ -15,7 +15,7 @@
 <bean id="memberRegService" class="member.service.MemberRegService">
 	<!-- <constructor-arg ref="MemberDao"/> -->
 	<constructor-arg>
-		<ref bean="MemberDao"/>
+		<ref bean="memberDao"/>
 	</constructor-arg>
 </bean>
 
