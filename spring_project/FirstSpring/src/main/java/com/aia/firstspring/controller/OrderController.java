@@ -1,7 +1,7 @@
-package com.aia.firstspring.member.controlloer;
+package com.aia.firstspring.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,7 +9,7 @@ import com.aia.firstspring.domain.OrderCommand;
 
 @Controller
 @RequestMapping("/order/order")
-public class OrderControlloer {
+public class OrderController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String getOrderForm() {
@@ -17,8 +17,8 @@ public class OrderControlloer {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String orderComplete(OrderCommand order) {
-		System.out.println("order: " + order);
+	public String orderComplete(@ModelAttribute("userOrder") OrderCommand order) {
+		System.out.println( order);
 		
 		return "order/orderComplete";
 	}

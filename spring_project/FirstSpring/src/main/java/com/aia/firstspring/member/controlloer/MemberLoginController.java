@@ -13,7 +13,7 @@ import com.aia.firstspring.member.domain.LoginRequest;
 
 @Controller
 @RequestMapping("/member/login")
-public class MemberLoginControlloer {
+public class MemberLoginController {
 	
 	//@RequestMapping(value = "/member/login", method=RequestMethod.GET)
 	@RequestMapping(method=RequestMethod.GET)
