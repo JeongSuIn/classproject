@@ -34,6 +34,14 @@
 			<c:url value="/cookie/view" var="cookieView"/>
 			<a href="${cookieView}">${cookieView}</a>
 		</li>
+		<li>
+			<c:url value="/header/headerInfo" var="header_url"/>
+			<a href="${header_url}">${header_url}</a>
+		</li>
+		<li>
+			<c:url value="/search/search" var="search"/>
+			<a href="${search}">${search}</a>
+		</li>
 	</ul>
 </body>
 </html>
