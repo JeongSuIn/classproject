@@ -26,6 +26,14 @@
 			<c:url value="/order/order" var="order"/>
 			<a href="${order}">${order}</a>
 		</li>
+		<li>
+			<c:url value="/cookie/make" var="cookieMake"/>
+			<a href="${cookieMake}">${cookieMake}</a>
+		</li>
+		<li>
+			<c:url value="/cookie/view" var="cookieView"/>
+			<a href="${cookieView}">${cookieView}</a>
+		</li>
 	</ul>
 </body>
 </html>
