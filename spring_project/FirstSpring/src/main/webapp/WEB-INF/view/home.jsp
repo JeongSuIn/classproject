@@ -42,6 +42,11 @@
 			<c:url value="/search/search" var="search"/>
 			<a href="${search}">${search}</a>
 		</li>
+		<li>
+			<c:url value="/upload/uploadForm" var="fileupload"/>
+			<a href="${fileupload}">${fileupload}</a>
+		</li>
+		
 	</ul>
 </body>
 </html>
