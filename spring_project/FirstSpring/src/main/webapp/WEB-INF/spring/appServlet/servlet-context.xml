@@ -35,6 +35,14 @@
 		
 	</beans:bean>
 	
+	<!-- <beans:bean id="memberDao"
+		  class="com.aia.firstspring.member.dao.MemberDao">
+		  <constructor-arg ref="jdbcTemplate"/>
+ 	</beans:bean>
+ 	
+ 	<beans:bean id="memberListService"
+ 		  class="com.aia.firstspring.member.service.MemberListService">
+ 	</beans:bean> -->
 	
 	
 	
