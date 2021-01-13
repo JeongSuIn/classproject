@@ -24,7 +24,7 @@
  	</insert>
  	
  	<select id="selectLogin"
- 			resultMap="regdate"
+ 			resultMap="memberResult"
  	>
  		select * from member where memberid=#{param1} and password=#{param2}
  	

@@ -1,5 +1,6 @@
 package com.aia.op.member.service;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,11 +37,25 @@ public class MemberLoginService {
 		System.out.println(member);
 		
 		if(member!=null) {
-			System.out.println("id/pw 일치");
-			
+			 
+			// 현재 세션의 속성에 LoginInfo 인스턴스를 저장
+			request.getSession().setAttribute("loginInfo", member.toLoginInfo());
+			loginCheck = true;
+			// 2. uid 쿠키 처리 -> 로그인이 됐을 때
+			if(chk!=null&&chk.equals("on")) {
+				// cookie 생성
+				Cookie c = new Cookie("uid", id);
+				c.setMaxAge(60*60*24*365); // 1년
+				response.addCookie(c);
+			} else {
+				// 쿠키 소멸
+				Cookie c = new Cookie("uid", id);
+				c.setMaxAge(0); // 쿠키 소멸
+				response.addCookie(c);
+			}
 		}
 		
-		// 2. uid 쿠키 처리
+		 
 		
 		
 		return loginCheck;
