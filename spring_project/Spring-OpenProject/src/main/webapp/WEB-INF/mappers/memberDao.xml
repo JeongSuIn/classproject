@@ -65,7 +65,7 @@
 			</if>
  		</where>
  		
- 		limit #{index}, #{count} 
+ 		limit #{startRow}, #{cntPerPage} 
  	</select>
  	
  	<!--  -->
