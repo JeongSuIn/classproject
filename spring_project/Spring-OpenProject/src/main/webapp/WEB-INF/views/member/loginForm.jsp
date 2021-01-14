@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="${url_defaultCss}">
+<%@ include file="/WEB-INF/views/include/basicset.jsp" %>
 <style>
 </style>
 </head>
