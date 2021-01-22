@@ -29,8 +29,18 @@
  	<insert id="insertMember"
  			parameterType="com.aia.op.member.domain.Member"
  	>
- 		INSERT INTO open.member(memberid, password, membername, memberphoto) 
+ 		INSERT INTO open.member
+ 		
+ 		<if test="memberphoto==null">
+ 		(memberid, password, membername) 
+ 		VALUES(#{memberid},#{password},#{membername}) 	
+ 		</if>
+ 		
+ 		<if test="memberphoto!=null">
+ 		(memberid, password, membername, memberphoto) 
  		VALUES(#{memberid},#{password},#{membername},#{memberphoto}) 	
+ 		</if>
+ 		
  	</insert>
  	
  	<!-- 로그인 -->
@@ -120,8 +130,20 @@
 		delete from member where idx=#{idx}
  	</delete>
  	
+ 	<!-- 회원 정보 조회 -->
+ 	<select id="selectMemberByIdx"
+ 			resultMap="memberListResult">
+ 		select * from member where idx=#{no} 	
+ 	</select>
  	
- 
- 
+ 	<!-- 회원 정보 수정 -->
+ 	<update id="updateMember"
+ 			parameterType="com.aia.op.member.domain.Member">
+ 		update member 
+ 		set membername=#{membername}
+ 					  , password=#{password}	
+ 					  , memberphoto=#{memberphoto}
+ 		where idx=#{idx}
+ 	</update>
  
  </mapper>

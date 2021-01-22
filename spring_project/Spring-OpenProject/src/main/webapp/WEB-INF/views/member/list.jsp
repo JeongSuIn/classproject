@@ -72,7 +72,7 @@
 					<th>Member Name</th>
 					<th>Member Photo</th>
 					<th>Reg Date</th>
-					<th>manage</th>
+					<th>Manage</th>
 				</tr>
 				
 				<c:forEach items="${listView.memberList}" var="member">
@@ -84,9 +84,10 @@
 							<img height="30" alt="프로필 사진" src="<c:url value="/fileupload/member/${member.memberphoto}"/>">
 						</td>
 						<td>
-							<fmt:formatDate value="${member.regdate}" pattern="yyyy.MM.dd."/>						
+							<fmt:formatDate value="${member.regdate}" pattern="yyyy.MM.dd"/>						
 						</td>
 						<td>
+							<a href="<c:url value="/member/edit?idx=${member.idx}"/>">수정</a>
 							<a href="javascript:deleteMember(${member.idx})">삭제</a>
 						</td>
 						

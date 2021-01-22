@@ -1,4 +1,4 @@
-package com.aia.firstspring.member.controlloer;
+package com.aia.firstspring.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aia.firstspring.Util.Sha256;
 import com.aia.firstspring.member.domain.Member;
 import com.aia.firstspring.member.service.MemberRegService;
 
@@ -16,6 +17,9 @@ public class MemberRegController {
 	
 	@Autowired
 	private MemberRegService regService;
+	
+	@Autowired
+	private Sha256 sha256;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getRegForm() {
@@ -28,6 +32,8 @@ public class MemberRegController {
 		System.out.println(member);
 		
 		int resultCnt = regService.insertMember(member);
+		
+		
 		
 		System.out.println(member);
 		

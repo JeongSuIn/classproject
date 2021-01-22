@@ -15,60 +15,62 @@ import com.aia.op.member.domain.MemberRegRequest;
 
 @Service
 public class MemberRegService {
-	
+
 	private MemberDao dao;
-	
+
 	@Autowired
 	private SqlSessionTemplate template;
-	
+
 	// 파일 업로드, 데이터 베이스 저장
-	public int memberReg(
-			MemberRegRequest regRequest
-			, HttpServletRequest request
-			) {
-		
-		// 웹 경로
-		String uploadPath = "/fileupload/member";
-		// 시스템의 실제 경로
-		String saveDirPath  = request.getSession().getServletContext().getRealPath(uploadPath);
-		// 새로운 파일 이름 
-		String newFileName = regRequest.getUserid()+System.currentTimeMillis();
-		
-		File newFile = new File(saveDirPath, newFileName);
-		
-		int result=0;
-		
-		
-		try {
+	public int memberReg(MemberRegRequest regRequest, HttpServletRequest request) {
+
+		int result = 0;
+		String newFileName = null;
+		File newFile = null;
+
+		if (!regRequest.getUserPhoto().isEmpty()) {
+			// 웹 경로
+			String uploadPath = "/fileupload/member";
+			// 시스템의 실제 경로
+			String saveDirPath = request.getSession().getServletContext().getRealPath(uploadPath);
+			// 새로운 파일 이름
+			newFileName = regRequest.getUserid() + System.currentTimeMillis();
+
+			newFile = new File(saveDirPath, newFileName);
+
 			// 파일 저장
-			regRequest.getUserPhoto().transferTo(newFile);
-			
-			Member member = regRequest.toMember();
-			member.setMemberphoto(newFileName);
-			
-			// 데이터 베이스 입력
-			dao = template.getMapper(MemberDao.class);
-			result = dao.insertMember(member);
-			
-			
-		} catch (IllegalStateException e) {			
-			e.printStackTrace();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-			
-			// 현재 저장한 파일이 있다면?? -> 삭제 처리
-			if(newFile.exists()) {
-				newFile.delete();
+			try {
+				regRequest.getUserPhoto().transferTo(newFile);
+
+			} catch (IllegalStateException e1) {
+				e1.printStackTrace();
+
+			} catch (IOException e1) {
+				e1.printStackTrace();
 			}
 		}
 		
-		
+		Member member = regRequest.toMember();
+		if (newFileName != null) {
+			member.setMemberphoto(newFileName);
+		}
+
+		try {
+
+			// 데이터 베이스 입력
+			dao = template.getMapper(MemberDao.class);
+			result = dao.insertMember(member);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			// 현재 저장한 파일이 있다면?? -> 삭제 처리
+			if (newFile != null && newFile.exists()) {
+				newFile.delete();
+			}
+		}
+
 		return result;
+
 	}
-	
-	
-	
 }

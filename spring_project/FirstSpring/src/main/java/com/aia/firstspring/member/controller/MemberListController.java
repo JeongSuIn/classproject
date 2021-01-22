@@ -1,4 +1,4 @@
-package com.aia.firstspring.member.controlloer;
+package com.aia.firstspring.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

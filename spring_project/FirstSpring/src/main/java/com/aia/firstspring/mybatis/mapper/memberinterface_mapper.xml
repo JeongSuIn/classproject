@@ -24,6 +24,12 @@
  		select count(*) from member 	
  	</select>
  	
+ 	<select id="selectByIdx"
+ 			resultType="com.aia.firstspring.member.domain.Member">
+ 		select * from member where idx=#{idx}	
+ 	
+ 	</select>
+ 	
  	
  	
  

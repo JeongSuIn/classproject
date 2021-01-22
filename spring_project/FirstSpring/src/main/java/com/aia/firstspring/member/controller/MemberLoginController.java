@@ -1,4 +1,4 @@
-package com.aia.firstspring.member.controlloer;
+package com.aia.firstspring.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
