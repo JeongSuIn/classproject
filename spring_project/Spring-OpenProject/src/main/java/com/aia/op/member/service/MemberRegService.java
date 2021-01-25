@@ -20,6 +20,10 @@ public class MemberRegService {
 
 	@Autowired
 	private SqlSessionTemplate template;
+	
+	@Autowired
+	private MailSenderService mailSenderService;
+
 
 	// 파일 업로드, 데이터 베이스 저장
 	public int memberReg(MemberRegRequest regRequest, HttpServletRequest request) {
@@ -60,7 +64,11 @@ public class MemberRegService {
 			// 데이터 베이스 입력
 			dao = template.getMapper(MemberDao.class);
 			result = dao.insertMember(member);
-
+			
+			// 메일 발송: 인증 처리를 하는 페이지 /op/member/verify?id=40&code=난수
+			int mailSendCnt = mailSenderService.send(member);
+			System.out.println("메일 발송 처리 횟수: " + mailSendCnt);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 

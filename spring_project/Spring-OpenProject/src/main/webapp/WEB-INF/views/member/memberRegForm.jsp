@@ -77,6 +77,18 @@
 	<script>
 		$(document).ready(function() {
 
+			$('#regForm').submit(function() {
+
+				var chk = $('#idcheck').is(':checked');
+
+				if (!chk) {
+					alert('아이디 중복여부가 체크되어야 합니다.');
+					return false;
+				}
+
+				return false;
+			});
+
 			$('#userid').focusout(function() {
 
 				var userid = $(this).val();
@@ -85,7 +97,7 @@
 
 				var checkBox = $('#idcheck');
 
-				//checkBox.prop('checked', false);
+				checkBox.prop('checked', false);
 
 				if (userid.length == 0) {
 					//alert('id는 필수 항목입니다.');
@@ -96,9 +108,7 @@
 
 					$.ajax({
 						url : 'idcheck',
-						data : {
-							id : userid
-						},
+						data : {id : userid	},
 						success : function(data) {
 							if (data == 'Y') {
 								//alert('사용가능한 아이디 입니다.');
