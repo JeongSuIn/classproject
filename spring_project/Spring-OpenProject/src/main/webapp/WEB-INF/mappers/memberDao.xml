@@ -145,5 +145,12 @@
  					  , memberphoto=#{memberphoto}
  		where idx=#{idx}
  	</update>
+ 	
+ 	
+	<select id="selectMemberByIdCount"
+					resultType="int"
+	>
+	select count(*) from member where memberid=#{id}
+	</select>
  
  </mapper>
