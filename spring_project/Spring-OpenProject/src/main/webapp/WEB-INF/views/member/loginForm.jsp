@@ -18,12 +18,51 @@
     <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	<%@ include file="/WEB-INF/views/include/nav.jsp"%>
+	
+	<main class="container">
+	
+		<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+		    <div class="lh-1">
+		      <h1 class="h2 mb-0 text-white lh-1">Index</h1>
+		    </div>
+		</div>
+		  <div class="my-3 p-3 bg-white rounded shadow-sm">
+		    <h3 class="border-bottom pb-2 mb-0">111</h6>
+		    <div class="d-flex text-muted pt-3">
+		      	INDEX
+		    </div>
+		    
+		  </div>
+		
+		  
+	</main>
 
 	<div class="contents">
 		<h2 class="content_title">Login Form</h2>
 		<hr>
 		<div class="content">
 		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			<form method="post">
 				<table>
 					<tr>
