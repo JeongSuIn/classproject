@@ -95,6 +95,9 @@
 				</c:forEach>
 			</table>
 			
+			<!-- 21.01.27 12:51 추가 -->
+			
+			
 			<div class="paging"> <!-- 21.01.14 12:00~ -->
 				<c:if test="${listView.totalMemberCount>0}">
 				<c:forEach begin="1" end="${listView.totalPageCount}" var="num">

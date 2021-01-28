@@ -16,14 +16,9 @@
 		<result column="regdate" property="regdate" />
 	</resultMap>
 
-	<resultMap id="memberListResult"
-		type="com.aia.op.member.domain.Member">
-		<id column="idx" property="idx" />
-		<result column="memberid" property="memberid" />
-		<result column="membername" property="membername" />
-		<result column="memberphoto" property="memberphoto" />
-		<result column="regdate" property="regdate" />
-	</resultMap>
+	<select id="">
+		select * from member
+	</select>
 
 	<!-- 회원 가입 -->
 	<insert id="insertMember"
