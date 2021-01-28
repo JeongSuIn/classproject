@@ -1,4 +1,4 @@
- package com.aia.op.member.service;
+package com.aia.op.member.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,13 +25,14 @@ public class MemberListService {
 	private SqlSessionTemplate template;
 
 	public MemberListView getListView(SearchParam param) {
+
 		MemberListView listView = null;
 
 		try {
 			// MemberDao 구현체 생성
 			dao = template.getMapper(MemberDao.class);
 
-			System.out.println("pageNumber: " + param.getP());
+			System.out.println("pageNumber : " + param.getP());
 
 			int cntPerPage = 5;
 
@@ -39,12 +40,13 @@ public class MemberListService {
 			int endRow = startRow + cntPerPage - 1;
 
 			Map<String, Object> listMap = new HashMap<String, Object>();
-			listMap.put("startRow", startRow);
-			listMap.put("cntPerPage", cntPerPage);
+			listMap.put("index", startRow);
+			listMap.put("count", cntPerPage);
 			listMap.put("searchParam", param);
 
+			// int totalMemberCount = dao.selectTotalCount();
 			int totalMemberCount = dao.selectSearchMemberCount(listMap);
-			System.out.println("totalMemberCount: " + totalMemberCount);
+			System.out.println("memberTotalCount : " + totalMemberCount);
 
 			List<Member> memberList = dao.selectMemberList(listMap);
 			System.out.println(memberList);
@@ -59,7 +61,7 @@ public class MemberListService {
 	}
 	
 	public List<Member> getListView() {
-		
+
 		List<Member> list = null;
 
 		try {
@@ -67,7 +69,7 @@ public class MemberListService {
 			dao = template.getMapper(MemberDao.class);
 
 			list = dao.selectAllMemberList();
-//			System.out.println(list);
+			//System.out.println(list);
 			log.info(list);
 
 

@@ -76,7 +76,7 @@
     <main role="main" class="container">
       <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
         <div class="lh-100">
-          <h1 class="mb-0 text-white lh-100">MemberList</h1>
+          <h1 class="mb-0 text-white lh-100">Member List</h1>
           <small>member info</small>
         </div>
       </div>
@@ -103,7 +103,7 @@
     	$(document).ready(function(){
     		
     		$.ajax({
-    			url: 'http://localhost:8080/firstspring/rest/ver1/members'
+    			url: 'http://localhost:8080/op/rest/ver1/members'
     			,type: 'GET' //생략 가능
     			,success: function(data){
     				console.log(data);
@@ -112,12 +112,13 @@
     				
     				$.each(data, function(index, item){
     			  
-		    		   	var html =  '<div class="media text-muted pt-3">';
-		      		          html += '	<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">';
-		      		          html += '		<strong class="d-block text-gray-dark">'+item.memberid+'('+item.membername+')</strong>';
-		      		          html += ' 		  '+item.memberphoto;
-		      		          html += '	</p>';
-		      		          html += '</div>';
+    					var html = ' <div class="media text-muted pt-3">';
+      	    		    //html += '     <img data-src="" alt="" class="mr-2 rounded">';
+      	    		    html += '       <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">';
+      	    		    html += '        <strong class="d-block text-gray-dark">'+item.memberid+' ( '+item.membername+' )</strong>';
+      	    		    html += '        ' + item.memberphoto;
+      	    		    html += '      </p>';
+      	    		    html += '    </div>';
     					
 		      		          $('#member_list').append(html);
     				});

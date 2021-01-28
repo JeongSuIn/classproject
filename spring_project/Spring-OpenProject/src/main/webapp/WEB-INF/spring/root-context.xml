@@ -30,7 +30,7 @@
 	<bean id="sqlSessionFactory" 
 		  class="org.mybatis.spring.SqlSessionFactoryBean"
 		  p:dataSource-ref="dataSource"
-		 
+		  p:mapperLocations="classpath:com/aia/op/member/dao/mapper/*.xml"
 	/>
 	<!--  p:mapperLocations="classpath:com/aia/op/member/dao/mapper/*.xml" -->
 	<!-- /WEB-INF/mappers/*.xml -->
@@ -42,4 +42,5 @@
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 		
+
 </beans>
