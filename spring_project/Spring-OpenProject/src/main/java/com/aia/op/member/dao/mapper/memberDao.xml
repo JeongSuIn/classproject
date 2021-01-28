@@ -16,16 +16,38 @@
 		<result column="regdate" property="regdate" />
 	</resultMap>
 
-	<select id="">
+	<resultMap id="memberListResult"
+		type="com.aia.op.member.domain.Member">
+		<id column="idx" property="idx" />
+		<result column="memberid" property="memberid" />
+		<result column="membername" property="membername" />
+		<result column="memberphoto" property="memberphoto" />
+		<result column="regdate" property="regdate" />
+	</resultMap>
+	
+	<resultMap id="memberListResult"
+		type="com.aia.op.member.domain.Member">
+		<id column="idx" property="idx" />
+		<result column="memberid" property="memberid" />
+		<result column="membername" property="membername" />
+		<result column="memberphoto" property="memberphoto" />
+		<result column="regdate" property="regdate" />
+	</resultMap>
+
+	<selct id="selectAllMemberList"
+		   resultMap="memberListResult"
+	>
 		select * from member
-	</select>
+	</selct>
+
 
 	<!-- 회원 가입 -->
 	<insert id="insertMember"
 			parameterType="com.aia.op.member.domain.Member"
 			useGeneratedKeys="true"
 			keyProperty="idx">
-		INSERT INTO open.member
+		INSERT INTO member
+		
 		<!-- 인증을 위해 code 컬럼 추가(21.01.25) -->
 		<if test="memberphoto==null">
 			(memberid, password, membername, code)
@@ -68,7 +90,7 @@
 			</if>
 		</where>
 
-		limit #{startRow}, #{cntPerPage}
+		limit #{index}, #{count}
 	</select>
 
 	<!-- -->
