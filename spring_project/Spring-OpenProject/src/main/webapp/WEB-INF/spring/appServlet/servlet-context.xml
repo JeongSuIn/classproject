@@ -67,10 +67,10 @@
 
 
 	<!-- @Transactional 애노테이션 활성화 설정 -->
-	<tx:annotation-driven />
-		<!-- <tx:annotation-driven
+	<!-- <tx:annotation-driven /> -->
+		<tx:annotation-driven
 		transaction-manager="transactionManager" />
- -->
+
 
 
 
