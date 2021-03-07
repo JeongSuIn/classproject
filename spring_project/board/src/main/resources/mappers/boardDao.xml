@@ -30,7 +30,7 @@
 	
 
 	<!-- 게시물 작성 -->
-	<insert id="insertMember"
+	<insert id="insertBoard"
 			parameterType="com.example.board.dao.Board"
 			useGeneratedKeys="true"
 			keyProperty="idx">
@@ -80,36 +80,26 @@
 		limit #{startRow}, #{cntPerPage}
 	</select>
 
-	<!-- -->
-	<select id="selectSearchMemberCount"
-		parameterType="com.aia.op.member.domain.SearchParam" resultType="int">
-		select count(*) from member
+	<!-- 검색 결과의 개수 -->
+	<select id="selectSearchBoardCount"
+		parameterType="com.example.board.domain.SearchParam" resultType="int">
+		select count(*) from open.board
 
 		<!-- where idx>0 -->
-
 		<where>
-			<if test="searchParam.searchType=='id'">
-				<!-- memberid like concat('%', #{keyword},'%') -->
-				<include refid="searchId" />
+			<if test="searchParam.searchType=='date'">
+				<include refid="searchDate" />
 			</if>
 
 			<if test="searchParam.searchType=='name'">
-				<!-- membername like concat('%', #{keyword},'%') -->
 				<include refid="searchName" />
 			</if>
 
 			<if test="searchParam.searchType=='both'">
-				<!-- membername like concat('%', #{keyword},'%') or memberid like concat('%', 
-					#{keyword},'%') -->
-				<include refid="searchId" />
+				<include refid="searchDate" />
 				<include refid="searchName"></include>
 			</if>
 		</where>
-
-		<!-- <if test="searchType=='id'"> where memberid like concat('%', #{keyword},'%') 
-			</if> <if test="searchType=='name'"> where membername like concat('%', #{keyword},'%') 
-			</if> <if test="searchType=='both'"> where membername like concat('%', #{keyword},'%') 
-			or memberid like concat('%', #{keyword},'%') </if> -->
 	</select>
 
 	<sql id="searchDate">
@@ -120,28 +110,28 @@
 		or user_name like concat('%', #{searchParam.keyword},'%')
 	</sql>
 
-
-	<delete id="deleteMemberByIdx">
-		delete from member where idx=#{idx}
+	<!-- 게시물 삭제 -->
+	<delete id="deleteBoardByIdx">
+		delete from open.board where idx=#{idx}
 	</delete>
 
 	<!-- 회원 정보 조회 -->
-	<select id="selectMemberByIdx" resultMap="memberListResult">
-		select * from member where idx=#{no}
+	<select id="selectBoardByIdx" resultMap="boardListResult">
+		select * from open.board where idx=#{no}
 	</select>
 
 	<!-- 회원 정보 수정 -->
-	<update id="updateMember"
-		parameterType="com.aia.op.member.domain.Member">
-		update member
-		set membername=#{membername}
-		, password=#{password}
-		, memberphoto=#{memberphoto}
+	<update id="updateBoard"
+		parameterType="com.example.board.domain.Board">
+		update open.board
+		title=#{title}
+		, contents=#{contents}
+		, image=#{image}
 		where idx=#{idx}
 	</update>
 
 
-	<select id="selectMemberByIdCount" resultType="int">
+	<!-- <select id="selectMemberByIdCount" resultType="int">
 		select count(*) from member where memberid=#{id}
 	</select>
 	
@@ -153,6 +143,6 @@
 	
 	<select id="updateMemberVerify">
 		update member set verify='Y' where idx=#{param1} and code={#param2}
-	</select>
+	</select> -->
 
 </mapper>
