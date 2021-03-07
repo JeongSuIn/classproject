@@ -3,71 +3,75 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.aia.op.member.dao.MemberDao">
+<mapper namespace="com.example.board.domain.DemoDao">
 
 	<!-- Member 타입의 resultMap: 로그인시 사용할 경우 -> 패스워드 회원가입 일자는 제외해도 됨. -->
-	<resultMap id="memberResult"
-		type="com.aia.op.member.domain.Member">
+	<resultMap id="boardResult"
+		type="com.example.board.dao.Board">
 		<id column="idx" property="idx" />
-		<result column="memberid" property="memberid" />
-		<result column="membername" property="membername" />
+		<result column="write_date" property="writedate" />
+		<result column="user_name" property="user_name" />
 		<result column="password" property="password" />
-		<result column="memberphoto" property="memberphoto" />
-		<result column="regdate" property="regdate" />
+		<result column="title" property="title" />
+		<result column="contents" property="contents" />
+		<result column="image" property="image" />
 	</resultMap>
-
-	<resultMap id="memberListResult"
-		type="com.aia.op.member.domain.Member">
+	
+	<resultMap id="boardListResult"
+		type="com.example.board.dao.Board">
 		<id column="idx" property="idx" />
-		<result column="memberid" property="memberid" />
-		<result column="membername" property="membername" />
-		<result column="memberphoto" property="memberphoto" />
-		<result column="regdate" property="regdate" />
+		<result column="writedate" property="writedate" />
+		<result column="user_name" property="user_name" />
+		<result column="title" property="title" />
+		<result column="contents" property="contents" />
+		<result column="image" property="image" />
 	</resultMap>
 
-	<!-- 회원 가입 -->
+	
+
+	<!-- 게시물 작성 -->
 	<insert id="insertMember"
-			parameterType="com.aia.op.member.domain.Member"
+			parameterType="com.example.board.dao.Board"
 			useGeneratedKeys="true"
 			keyProperty="idx">
-		INSERT INTO open.member
+		INSERT INTO open.board
 		<!-- 인증을 위해 code 컬럼 추가(21.01.25) -->
-		<if test="memberphoto==null">
-			(memberid, password, membername, code)
-			VALUES(#{memberid},#{password},#{membername}, #{code})
+		<if test="image==null">
+			(user_name, password, title, contents)
+			VALUES(#{user_name},#{password},#{title},#{contents})
 		</if>
 
-		<if test="memberphoto!=null">
-			(memberid, password, membername, memberphoto, code)
-			VALUES(#{memberid},#{password},#{membername},#{memberphoto}, #{code})
+		<if test="image!=null">
+			(user_name, password, title, contents, image)
+			VALUES(#{user_name},#{password},#{title},#{contents},#{image})
 		</if>
 
 	</insert>
 
 	<!-- 로그인 -->
-	<select id="selectLogin" resultMap="memberResult">
-		select * from member where memberid=#{param1} and password=#{param2}
+	<select id="selectLogin" resultMap="boardResult">
+		select * from open.board where  password=#{param2}
 	</select>
 
-	<!-- 회원의 총 인원수 -->
+	<!-- 게시물의 총 개수 -->
 	<select id="selectTotalCount" resultType="int">
-		select count(*) from member
+		select count(*) from open.board
 	</select>
 
-	<!-- -->
-	<select id="selectMemberList" parameterType="map"
-		resultMap="memberListResult">
-		select * from member
+	<!-- 게시물 리스트 -->
+	<select id="selectBoardrList" parameterType="map"
+		resultMap="boardListResult">
+		select * from open.board
 		<where>
 			<if test="searchParam != null">
-				<if test="searchParam.searchType == 'id'">
-					<include refid="searchId" />
+				<if test="searchParam.searchType == 'date'">
+					<include refid="searchDate" />
 				</if>
 				<if test="searchParam.searchType == 'name'">
 					<include refid="searchName" />
 				</if>
 				<if test="searchParam.searchType == 'both'">
-					<include refid="searchId" />
+					<include refid="searchDate" />
 					<include refid="searchName" />
 				</if>
 			</if>
@@ -108,12 +112,12 @@
 			or memberid like concat('%', #{keyword},'%') </if> -->
 	</select>
 
-	<sql id="searchId">
-		or memberid like concat('%', #{searchParam.keyword},'%')
+	<sql id="searchDate">
+		or write_date like concat('%', #{searchParam.keyword},'%')
 	</sql>
 
 	<sql id="searchName">
-		or membername like concat('%', #{searchParam.keyword},'%')
+		or user_name like concat('%', #{searchParam.keyword},'%')
 	</sql>
 
 
