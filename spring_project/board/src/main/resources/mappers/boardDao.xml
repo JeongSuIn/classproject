@@ -50,7 +50,7 @@
 
 	<!-- 로그인 -->
 	<select id="selectLogin" resultMap="boardResult">
-		select * from open.board where  password=#{param2}
+		select * from open.board where  password=#{param1}
 	</select>
 
 	<!-- 게시물의 총 개수 -->

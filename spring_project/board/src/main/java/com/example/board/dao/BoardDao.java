@@ -15,7 +15,7 @@ public interface BoardDao {
 		int BoardCountUpdate();
 
 		// 로그인
-		Board selectLogin(String id, String pw);
+		Board selectLogin(String pw);
 
 		// 회원의 총 인원수
 		int selectTotalCount();
