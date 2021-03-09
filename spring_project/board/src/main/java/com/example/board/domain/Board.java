@@ -4,10 +4,10 @@ public class Board {
 	
 	private int idx;
 	private String user_name;
-	private String password;
 	private String title;
 	private String contents;
-	private String image;
+	
+	
 	public int getIdx() {
 		return idx;
 	}
@@ -19,12 +19,6 @@ public class Board {
 	}
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public String getTitle() {
 		return title;
@@ -38,24 +32,13 @@ public class Board {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	
-	/*
-	 * public LoginInfo toLoginInfo() { return new LoginInfo(password) }
-	 */
 	
 	@Override
 	public String toString() {
-		return "Board [idx=" + idx + ", user_name=" + user_name + ", password=" + password + ", title=" + title
-				+ ", contents=" + contents + ", image=" + image + "]";
+		return "Board [idx=" + idx + ", user_name=" + user_name + ", title=" + title + ", contents=" + contents + "]";
 	}
-	
-	
-	
 
+	
+	
+	
 }

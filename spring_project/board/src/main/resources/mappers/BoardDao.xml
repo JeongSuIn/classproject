@@ -3,55 +3,49 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.board.domain.DemoDao">
+<mapper namespace="com.example.board.dao.BoradDao">
 
 	<!-- Member 타입의 resultMap: 로그인시 사용할 경우 -> 패스워드 회원가입 일자는 제외해도 됨. -->
 	<resultMap id="boardResult"
-		type="com.example.board.dao.Board">
+		type="com.example.board.domain.Board">
 		<id column="idx" property="idx" />
 		<result column="write_date" property="writedate" />
 		<result column="user_name" property="user_name" />
-		<result column="password" property="password" />
 		<result column="title" property="title" />
 		<result column="contents" property="contents" />
 		<result column="image" property="image" />
 	</resultMap>
 	
-	<resultMap id="boardListResult"
-		type="com.example.board.dao.Board">
+	<!-- <resultMap id="boardListResult"
+		type="com.example.board.dao.BoardDao">
 		<id column="idx" property="idx" />
 		<result column="writedate" property="writedate" />
 		<result column="user_name" property="user_name" />
 		<result column="title" property="title" />
 		<result column="contents" property="contents" />
 		<result column="image" property="image" />
-	</resultMap>
+	</resultMap> -->
 
 	
 
 	<!-- 게시물 작성 -->
 	<insert id="insertBoard"
-			parameterType="com.example.board.dao.Board"
+			parameterType="com.example.board.domain.Board"
 			useGeneratedKeys="true"
 			keyProperty="idx">
 		INSERT INTO open.board
 		<!-- 인증을 위해 code 컬럼 추가(21.01.25) -->
 		<if test="image==null">
-			(user_name, password, title, contents)
-			VALUES(#{user_name},#{password},#{title},#{contents})
+			(user_name, title, contents)
+			VALUES(#{user_name},#{title},#{contents})
 		</if>
 
 		<if test="image!=null">
-			(user_name, password, title, contents, image)
-			VALUES(#{user_name},#{password},#{title},#{contents},#{image})
+			(user_name, title, contents, image)
+			VALUES(#{user_name},#{title},#{contents},#{image})
 		</if>
 
 	</insert>
-
-	<!-- 로그인 -->
-	<select id="selectLogin" resultMap="boardResult">
-		select * from open.board where  password=#{param1}
-	</select>
 
 	<!-- 게시물의 총 개수 -->
 	<select id="selectTotalCount" resultType="int">
@@ -59,25 +53,8 @@
 	</select>
 
 	<!-- 게시물 리스트 -->
-	<select id="selectBoardrList" parameterType="map"
-		resultMap="boardListResult">
+	<select id="selectBoardrList" resultType="int" resultMap="boardResult">
 		select * from open.board
-		<where>
-			<if test="searchParam != null">
-				<if test="searchParam.searchType == 'date'">
-					<include refid="searchDate" />
-				</if>
-				<if test="searchParam.searchType == 'name'">
-					<include refid="searchName" />
-				</if>
-				<if test="searchParam.searchType == 'both'">
-					<include refid="searchDate" />
-					<include refid="searchName" />
-				</if>
-			</if>
-		</where>
-
-		limit #{startRow}, #{cntPerPage}
 	</select>
 
 	<!-- 검색 결과의 개수 -->
@@ -116,7 +93,7 @@
 	</delete>
 
 	<!-- 회원 정보 조회 -->
-	<select id="selectBoardByIdx" resultMap="boardListResult">
+	<select id="selectBoardByIdx" resultMap="boardResult">
 		select * from open.board where idx=#{no}
 	</select>
 
