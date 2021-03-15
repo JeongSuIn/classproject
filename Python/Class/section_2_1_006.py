@@ -6,6 +6,6 @@ print('I love cat')
 print("내가 좋아하는 숫자는 9, 6, 2 입니다.")
 
 city = 'seoul'
-dosi = "미래 도시"c
+dosi = "미래 도시"
 print(city)
 print(dosi)
