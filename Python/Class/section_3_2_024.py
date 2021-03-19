@@ -1,0 +1,11 @@
+# section_3_2_024
+
+string = "name"
+print(string)
+
+capital = string.upper()
+
+print(capital)
+print(string)
+
+#string[0] = "N" # 오류 발생
